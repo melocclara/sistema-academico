@@ -27,7 +27,6 @@ CREATE TABLE Pessoa (
     CONSTRAINT pk_pessoa PRIMARY KEY (cpf),
     CONSTRAINT uk_pessoa_email UNIQUE (email),
     CONSTRAINT uk_pessoa_usuario UNIQUE (usuario),
-    CONSTRAINT ck_pessoa_cpf CHECK (cpf BETWEEN 10000000000 AND 99999999999),
     CONSTRAINT ck_pessoa_genero CHECK (identidade_genero IN ('MULHER CIS', 'HOMEM CIS', 'MULHER TRANS', 'HOMEM TRANS', 'NÃO BINÁRIO', 'OUTRO'))
 );
 
@@ -54,10 +53,10 @@ CREATE TABLE Professor (
 CREATE TABLE Curso (
     codigo_id VARCHAR2(11),
     nome VARCHAR2(200) NOT NULL,
-    ch_total INTERGER NOT NULL,
+    ch_total INTEGER NOT NULL,
     modalidade VARCHAR2(20)  NOT NULL,
     turno VARCHAR2(20) NOT NULL,
-    num_vagas INTERGER NOT NULL,
+    num_vagas INTEGER NOT NULL,
     grau_academico VARCHAR2(20) NOT NULL,
     cpf_coordenador VARCHAR2(11),
     sigla_departamento VARCHAR2(20) NOT NULL,
@@ -76,9 +75,9 @@ CREATE TABLE Disciplina (
     codigo VARCHAR2(10),
     nome VARCHAR2(200) NOT NULL,
     ementa VARCHAR2(4000) NOT NULL,
-    ch_teorica INTERGER NOT NULL,
-    ch_pratica INTERGER NOT NULL,
-    num_creditos INTERGER NOT NULL,
+    ch_teorica INTEGER NOT NULL,
+    ch_pratica INTEGER NOT NULL,
+    num_creditos INTEGER NOT NULL,
 
     CONSTRAINT pk_disciplina PRIMARY KEY (codigo),
     CONSTRAINT ck_disciplina_ch_teorica CHECK (ch_teorica >= 0),
@@ -90,7 +89,7 @@ CREATE TABLE Turma (
     cod_turma VARCHAR2(11),
     periodo VARCHAR2(6) NOT NULL,
     turno VARCHAR2(20) NOT NULL,
-    num_vaga INTERGER NOT NULL,
+    num_vaga INTEGER NOT NULL,
     codigo_disciplina VARCHAR2(10) NOT NULL,
 
     CONSTRAINT pk_turma PRIMARY KEY (cod_turma),
@@ -101,10 +100,10 @@ CREATE TABLE Turma (
 
 CREATE TABLE Sala (
     cod_sala VARCHAR2(11),
-    capacidade INTERGER NOT NULL,
+    capacidade INTEGER NOT NULL,
     predio VARCHAR2(200) NOT NULL,
     bloco VARCHAR2(2) NOT NULL,
-    andar INTERGER NOT NULL,
+    andar INTEGER NOT NULL,
 
     CONSTRAINT pk_sala PRIMARY KEY (cod_sala),
     CONSTRAINT ck_sala_capacidade CHECK (capacidade >= 0),
@@ -114,7 +113,7 @@ CREATE TABLE Sala (
 -- Entidade fraca: PK composta (turma proprietaria + numero discriminador)
 CREATE TABLE Avaliacao (
     cod_turma VARCHAR2(11),
-    num_avaliacao INTERGER,
+    num_avaliacao INTEGER,
     tipo VARCHAR2(100) NOT NULL,
     peso NUMBER(3) NOT NULL,
     data DATE NOT NULL,
@@ -169,7 +168,7 @@ CREATE TABLE Compoe_a_grade_curricular_de (
     codigo_disciplina VARCHAR2(10),
     codigo_id VARCHAR2(11),
     tipo VARCHAR2(100) NOT NULL,
-    periodo_sugerido INTERGER,
+    periodo_sugerido INTEGER,
 
     CONSTRAINT pk_grade_curricular PRIMARY KEY (codigo_disciplina, codigo_id),
     CONSTRAINT fk_grade_disciplina FOREIGN KEY (codigo_disciplina) REFERENCES Disciplina (codigo),
@@ -181,7 +180,7 @@ CREATE TABLE Compoe_a_grade_curricular_de (
 CREATE TABLE Desempenho_em (
     cod_turma VARCHAR2(11),
     cpf_aluno VARCHAR2(11),
-    num_avaliacao INTERGER,
+    num_avaliacao INTEGER,
     nota NUMBER(4, 2),
 
     CONSTRAINT pk_desempenho_em PRIMARY KEY (cod_turma, cpf_aluno, num_avaliacao),

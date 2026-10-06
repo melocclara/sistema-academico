@@ -7,7 +7,7 @@ CREATE TABLE Departamento (
     sigla VARCHAR2(20),
     nome VARCHAR2(200) NOT NULL,
     localizacao VARCHAR2(200) NOT NULL,
-    telefone VARCHAR(13),
+    telefone VARCHAR2(13),
 
     CONSTRAINT pk_departamento PRIMARY KEY (sigla),
     CONSTRAINT uk_departamento_nome UNIQUE (nome),

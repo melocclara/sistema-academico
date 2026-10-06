@@ -11,8 +11,7 @@ CREATE TABLE Departamento (
 
     CONSTRAINT pk_departamento PRIMARY KEY (sigla),
     CONSTRAINT uk_departamento_nome UNIQUE (nome),
-    CONSTRAINT uk_departamento_telefone UNIQUE (telefone),
-    CONSTRAINT ck_departamento_telefone CHECK (telefone >= 0)
+    CONSTRAINT uk_departamento_telefone UNIQUE (telefone)
 );
 
 CREATE TABLE Pessoa (
@@ -53,10 +52,10 @@ CREATE TABLE Professor (
 CREATE TABLE Curso (
     codigo_id VARCHAR2(11),
     nome VARCHAR2(200) NOT NULL,
-    ch_total INTEGER NOT NULL,
+    ch_total NUMBER(4) NOT NULL,
     modalidade VARCHAR2(20)  NOT NULL,
     turno VARCHAR2(20) NOT NULL,
-    num_vagas INTEGER NOT NULL,
+    num_vagas NUMBER(4) NOT NULL,
     grau_academico VARCHAR2(20) NOT NULL,
     cpf_coordenador VARCHAR2(11),
     sigla_departamento VARCHAR2(20) NOT NULL,
@@ -65,7 +64,7 @@ CREATE TABLE Curso (
     CONSTRAINT fk_curso_coordenador FOREIGN KEY (cpf_coordenador) REFERENCES Professor (cpf_pessoa),
     CONSTRAINT fk_curso_departamento FOREIGN KEY (sigla_departamento) REFERENCES Departamento (sigla),
     CONSTRAINT ck_curso_ch_total CHECK (ch_total >= 0),
-    CONSTRAINT ck_curso_modalidade CHECK (modalidade IN ('PRESENCIAL', 'REMOTO', 'HIBRIDO')),
+    CONSTRAINT ck_curso_modalidade CHECK (modalidade IN ('PRESENCIAL', 'REMOTO', 'HÍBRIDO')),
     CONSTRAINT ck_curso_turno CHECK (turno IN ('MATUTINO', 'VESPERTINO', 'NOTURNO', 'INTEGRAL')),
     CONSTRAINT ck_curso_num_vagas CHECK (num_vagas >= 0),
     CONSTRAINT ck_curso_grau CHECK (grau_academico IN ('BACHARELADO', 'LICENCIATURA'))
@@ -75,9 +74,9 @@ CREATE TABLE Disciplina (
     codigo VARCHAR2(10),
     nome VARCHAR2(200) NOT NULL,
     ementa VARCHAR2(4000) NOT NULL,
-    ch_teorica INTEGER NOT NULL,
-    ch_pratica INTEGER NOT NULL,
-    num_creditos INTEGER NOT NULL,
+    ch_teorica NUMBER(4) NOT NULL,
+    ch_pratica NUMBER(4) NOT NULL,
+    num_creditos NUMBER(5) NOT NULL,
 
     CONSTRAINT pk_disciplina PRIMARY KEY (codigo),
     CONSTRAINT ck_disciplina_ch_teorica CHECK (ch_teorica >= 0),
@@ -89,7 +88,7 @@ CREATE TABLE Turma (
     cod_turma VARCHAR2(11),
     periodo VARCHAR2(6) NOT NULL,
     turno VARCHAR2(20) NOT NULL,
-    num_vaga INTEGER NOT NULL,
+    num_vagas NUMBER(3) NOT NULL,
     codigo_disciplina VARCHAR2(10) NOT NULL,
 
     CONSTRAINT pk_turma PRIMARY KEY (cod_turma),
@@ -100,10 +99,10 @@ CREATE TABLE Turma (
 
 CREATE TABLE Sala (
     cod_sala VARCHAR2(11),
-    capacidade INTEGER NOT NULL,
+    capacidade NUMBER(3) NOT NULL,
     predio VARCHAR2(200) NOT NULL,
     bloco VARCHAR2(2) NOT NULL,
-    andar INTEGER NOT NULL,
+    andar NUMBER(2) NOT NULL,
 
     CONSTRAINT pk_sala PRIMARY KEY (cod_sala),
     CONSTRAINT ck_sala_capacidade CHECK (capacidade >= 0),
@@ -113,7 +112,7 @@ CREATE TABLE Sala (
 -- Entidade fraca: PK composta (turma proprietaria + numero discriminador)
 CREATE TABLE Avaliacao (
     cod_turma VARCHAR2(11),
-    num_avaliacao INTEGER,
+    num_avaliacao NUMBER(3),
     tipo VARCHAR2(100) NOT NULL,
     peso NUMBER(3) NOT NULL,
     data DATE NOT NULL,
@@ -146,8 +145,8 @@ CREATE TABLE Monitora (
 );
 
 CREATE TABLE Pre_requisito (
-    codigo_disciplina  VARCHAR2(10),
-    codigo_requisito   VARCHAR2(10),
+    codigo_disciplina VARCHAR2(10),
+    codigo_requisito VARCHAR2(10),
 
     CONSTRAINT pk_pre_requisito PRIMARY KEY (codigo_disciplina, codigo_requisito),
     CONSTRAINT fk_prereq_disciplina FOREIGN KEY (codigo_disciplina) REFERENCES Disciplina (codigo),
@@ -168,26 +167,24 @@ CREATE TABLE Compoe_a_grade_curricular_de (
     codigo_disciplina VARCHAR2(10),
     codigo_id VARCHAR2(11),
     tipo VARCHAR2(100) NOT NULL,
-    periodo_sugerido INTEGER,
+    periodo_sugerido NUMBER(2),
 
     CONSTRAINT pk_grade_curricular PRIMARY KEY (codigo_disciplina, codigo_id),
     CONSTRAINT fk_grade_disciplina FOREIGN KEY (codigo_disciplina) REFERENCES Disciplina (codigo),
     CONSTRAINT fk_grade_curso FOREIGN KEY (codigo_id) REFERENCES Curso (codigo_id),
-    CONSTRAINT ck_grade_tipo CHECK (tipo IN ('OBRIGATORIA', 'ELETIVA LIVRE', 'ELETIVA DE PERFIL')),
+    CONSTRAINT ck_grade_tipo CHECK (tipo IN ('OBRIGATÓRIA', 'ELETIVA LIVRE', 'ELETIVA DE PERFIL')),
     CONSTRAINT ck_grade_periodo CHECK (periodo_sugerido >= 0)
 );
 
 CREATE TABLE Desempenho_em (
     cod_turma VARCHAR2(11),
     cpf_aluno VARCHAR2(11),
-    num_avaliacao INTEGER,
+    num_avaliacao NUMBER(3),
     nota NUMBER(4, 2),
 
     CONSTRAINT pk_desempenho_em PRIMARY KEY (cod_turma, cpf_aluno, num_avaliacao),
-    CONSTRAINT fk_desempenho_matricula FOREIGN KEY (cpf_aluno, cod_turma)
-        REFERENCES Matricula (cpf_aluno, cod_turma),
-    CONSTRAINT fk_desempenho_avaliacao FOREIGN KEY (cod_turma, num_avaliacao)
-        REFERENCES Avaliacao (cod_turma, num_avaliacao),
+    CONSTRAINT fk_desempenho_matricula FOREIGN KEY (cpf_aluno, cod_turma) REFERENCES Matricula (cpf_aluno, cod_turma),
+    CONSTRAINT fk_desempenho_avaliacao FOREIGN KEY (cod_turma, num_avaliacao) REFERENCES Avaliacao (cod_turma, num_avaliacao),
     CONSTRAINT ck_desempenho_nota CHECK (nota BETWEEN 0 AND 10)
 );
 
@@ -203,9 +200,9 @@ CREATE TABLE Vincula_se_a (
     CONSTRAINT pk_vincula_se_a PRIMARY KEY (cpf_aluno, codigo_curso, data_ingresso),
     CONSTRAINT fk_vincula_aluno FOREIGN KEY (cpf_aluno) REFERENCES Aluno (cpf_pessoa),
     CONSTRAINT fk_vincula_curso FOREIGN KEY (codigo_curso) REFERENCES Curso (codigo_id),
-    CONSTRAINT ck_vincula_status CHECK (status IN ('ATIVO', 'CANCELADO', 'CONCLUIDO', 'TRANCADO', 'TRANSFERIDO')),
+    CONSTRAINT ck_vincula_estado CHECK (estado IN ('ATIVO', 'CANCELADO', 'CONCLUIDO', 'TRANCADO', 'TRANSFERIDO')),
     CONSTRAINT ck_vincula_cr CHECK (coeficiente_rendimento BETWEEN 0 AND 10),
-    CONSTRAINT ck_vincula_forma CHECK (forma_ingresso IN ('SISU', 'TRANSFERENCIA INTERNA', 'TRANSFERENCIA EXTERNA', 'PORTADOR DE DIPLOMA')),
+    CONSTRAINT ck_vincula_forma CHECK (forma_ingresso IN ('SISU', 'TRANSFERÊNCIA INTERNA', 'TRANSFERÊNCIA EXTERNA', 'PORTADOR DE DIPLOMA')),
     CONSTRAINT ck_vincula_datas CHECK (data_saida >= data_ingresso)
 );
 
@@ -227,8 +224,7 @@ CREATE TABLE Telefone_pessoa (
     telefone VARCHAR2(13),
 
     CONSTRAINT pk_telefone_pessoa PRIMARY KEY (cpf, telefone),
-    CONSTRAINT fk_telefone_pessoa FOREIGN KEY (cpf) REFERENCES Pessoa (cpf),
-    CONSTRAINT ck_telefone_pessoa CHECK (telefone >= 0)
+    CONSTRAINT fk_telefone_pessoa FOREIGN KEY (cpf) REFERENCES Pessoa (cpf)
 );
 
 CREATE TABLE Bibliografia_disciplina (

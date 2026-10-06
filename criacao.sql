@@ -251,7 +251,7 @@ CREATE TABLE lotacao
     sigla_dept varchar2(10),
     data_admissao date,
     data_encerramento date,
-    regime_trabalho varchar2(20) NOT NULL,
+    regime_trabalho varchar2(30) NOT NULL,
     CONSTRAINT lotacao_pk PRIMARY KEY (cpf_professor, sigla_dept, data_admissao),
     CONSTRAINT lotacao_professor_fk FOREIGN KEY (cpf_professor) REFERENCES professor(cpf_pessoa),
     CONSTRAINT lotacao_departamento_fk FOREIGN KEY (sigla_dept) REFERENCES departamento(sigla),

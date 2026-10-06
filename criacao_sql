@@ -28,7 +28,7 @@ CREATE TABLE Pessoa (
     CONSTRAINT uk_pessoa_email UNIQUE (email),
     CONSTRAINT uk_pessoa_usuario UNIQUE (usuario),
     CONSTRAINT ck_pessoa_cpf CHECK (cpf BETWEEN 10000000000 AND 99999999999),
-    CONSTRAINT ck_pessoa_genero CHECK (identidade_genero IN ('MULHER CIS', 'HOMEM CIS', 'MULHER TRANS', 'HOMEM TRANS', 'NAO-BINARIO', 'OUTRO'))
+    CONSTRAINT ck_pessoa_genero CHECK (identidade_genero IN ('MULHER CIS', 'HOMEM CIS', 'MULHER TRANS', 'HOMEM TRANS', 'NÃO BINÁRIO', 'OUTRO'))
 );
 
 CREATE TABLE Aluno (

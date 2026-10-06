@@ -95,7 +95,6 @@ CREATE TABLE Turma (
 
     CONSTRAINT pk_turma PRIMARY KEY (cod_turma),
     CONSTRAINT fk_turma_disciplina FOREIGN KEY (codigo_disciplina) REFERENCES Disciplina (codigo),
-    CONSTRAINT ck_turma_periodo CHECK (REGEXP_LIKE(periodo, '^[0-9]{4}\.[12]$')),
     CONSTRAINT ck_turma_turno CHECK (turno IN ('MATUTINO', 'VESPERTINO', 'NOTURNO', 'INTEGRAL')),
     CONSTRAINT ck_turma_num_vagas CHECK (num_vagas >= 0)
 );

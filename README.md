@@ -17,7 +17,9 @@ Scripts de criação e povoamento (Oracle SQL) de um banco de dados acadêmico, 
 5. [Regras garantidas pelo banco](#5-regras-garantidas-pelo-banco)
 6. [Regras que ficam fora do banco](#6-regras-que-ficam-fora-do-banco)
 7. [O povoamento](#7-o-povoamento)
-8. [Checklist da entrega](#8-checklist-da-entrega)
+8. [Mudanças em relação à AV2](#8-mudanças-em-relação-à-av2)
+9. [Suposições](#9-suposições)
+10. [Checklist da entrega](#10-checklist-da-entrega)
 
 ---
 
@@ -55,11 +57,6 @@ UNION ALL SELECT 'Desempenho_em', COUNT(*) FROM Desempenho_em;
 Resultado esperado: **10 turmas, 57 matrículas e 107 notas.**
 
 ### Observações
-
-- O `01_criacao.sql` começa apagando as tabelas e sequences do projeto, então pode ser executado várias vezes.
-  Se rodá-lo de novo, rode o `02_povoamento.sql` em seguida.
-- O `02_povoamento.sql` conta com as sequences recém-criadas (cursos 1 a 4, salas 1 a 5, turmas 1 a 10).
-  Por isso ele deve rodar logo depois do `01`, e do início ao fim.
 - Salve os arquivos em **UTF-8**, pois os dados têm acentos.
 
 ## 3. O que o banco modela
@@ -166,7 +163,22 @@ As notas, situações, horários e salas foram conferidos manualmente: quem curs
 
 **Dados fictícios.** CPFs sem dígito verificador, telefones e senhas inventados. O histórico anterior a 2025.2 dos alunos veteranos não foi povoado.
 
-## 8. Checklist da entrega
+## 8. Mudanças em relação à AV2
+
+1. **`Desempenho_em`:** a FK para `Avaliacao` passou a ser composta, `(cod_turma, num_avaliacao)`, já que a chave primária de `Avaliacao` é composta.
+2. **`Avaliacao`:** a coluna `data` foi renomeada para `data_aplicacao`, nome usado no minimundo.
+3. **`Reserva`:** a PK é `cod_turma`, e há uma FK composta para `Ministra(cpf_professor, cod_turma)`.
+4. **`Vincula_se_a` e `Lotacao`:** `data_ingresso` e `data_admissao` foram marcadas como parte da PK.
+6. **Média:** o minimundo falava em "média simples" e em pesos. Usamos **média ponderada**, e a média simples é o caso de pesos iguais.
+6. **Co-requisitos:** o minimundo os cita, mas o esquema modela só pré-requisitos.
+
+## 9. Suposições
+
+- **Frequência mínima de 75%** para aprovação. Não está no minimundo. Se a regra não se aplicar, basta remover o `CHECK ck_matr_aprov_freq`.
+- **Coeficiente de rendimento** do povoamento: média simples das médias das disciplinas já encerradas, como simplificação.
+- **Prova final** modelada como uma avaliação de tipo `FINAL` com peso 0, e a regra de aprovação por final fica fora da média ponderada.
+
+## 10. Checklist da entrega
 
 - [x] `CREATE TABLE`
 - [x] `INSERT INTO`

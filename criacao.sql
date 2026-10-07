@@ -14,7 +14,8 @@ CREATE TABLE pessoa
     CONSTRAINT pessoa_email_uk UNIQUE (email),
     CONSTRAINT pessoa_usuario_uk UNIQUE (usuario),
     -- CHECK constraints
-    CONSTRAINT pessoa_email_ck CHECK (email LIKE '_%@_%._%'),
+    CONSTRAINT pessoa_cpf_ck CHECK (REGEXP_LIKE(cpf, '^[0-9]{11}$')),
+    CONSTRAINT pessoa_email_ck CHECK (REGEXP_LIKE(email, '^[^@ ]+@[^@ ]+\.[^@ ]+$')),
     CONSTRAINT pessoa_usuario_ck CHECK (usuario NOT LIKE '% %'),
     CONSTRAINT pessoa_senha_ck CHECK (senha LIKE '________%' AND senha NOT LIKE '% %'),
     CONSTRAINT pessoa_genero_ck CHECK (identidade_genero IN ('Mulher cis', 'Mulher trans', 'Homem cis', 'Homem trans', 'Não-binário', 'Outro'))
@@ -26,7 +27,7 @@ CREATE TABLE telefone_pessoa
     telefone varchar2(11),
     CONSTRAINT telefone_pessoa_pk PRIMARY KEY (cpf_pessoa, telefone),
     CONSTRAINT telefone_pessoa_cpf_fk FOREIGN KEY (cpf_pessoa) REFERENCES pessoa(cpf),
-    CONSTRAINT telefone_pessoa_telefone_ck CHECK (telefone LIKE '__________%' AND telefone NOT LIKE '% %')
+    CONSTRAINT departamento_telefone_ck CHECK (REGEXP_LIKE(telefone, '^[0-9]{10,11}$'))
 );
 
 CREATE TABLE aluno
@@ -56,11 +57,11 @@ CREATE TABLE departamento
     nome varchar2(100) NOT NULL,
     localizacao varchar2(70),
     telefone varchar2(11) NOT NULL,
-    CONSTRAINT departamento_pk PRIMARY KEY (sigla),
-    CONSTRAINT departamento_nome_uk UNIQUE (nome),
-    -- cada departamento tem um telefone próprio
-    CONSTRAINT departamento_telefone_uk UNIQUE (telefone),
-    CONSTRAINT departamento_telefone_ck CHECK (telefone LIKE '__________%' AND telefone NOT LIKE '% %')
+    CONSTRAINT dep_g1_pk PRIMARY KEY (sigla),
+    CONSTRAINT dep_g1_nome_uk UNIQUE (nome),
+    CONSTRAINT dep_g1_tel_uk UNIQUE (telefone),
+    CONSTRAINT dep_g1_tel_ck
+        CHECK (REGEXP_LIKE(telefone, '^[0-9]{10,11}$'))
 );
 
 CREATE SEQUENCE curso_seq INCREMENT BY 1 START WITH 1;
@@ -83,6 +84,7 @@ CREATE TABLE curso
     CONSTRAINT curso_sigla_fk FOREIGN KEY (sigla_departamento) REFERENCES departamento(sigla),
     -- UNIQUE constraints
     CONSTRAINT curso_uk UNIQUE (nome, modalidade, turno, grau_academico),
+    CONSTRAINT curso_coordenador_uk UNIQUE (cpf_coordenador),
     -- CHECK constraints
     CONSTRAINT curso_ch_total_ck CHECK (ch_total > 0),
     CONSTRAINT curso_num_vagas_ck CHECK (num_vagas > 0),
@@ -124,7 +126,8 @@ CREATE TABLE turma
     CONSTRAINT turma_pk PRIMARY KEY (cod_turma),
     CONSTRAINT turma_disciplina_fk FOREIGN KEY (codigo_disciplina) REFERENCES disciplina(codigo),
     CONSTRAINT turma_turno_ck CHECK (turno IN ('Matutino', 'Vespertino', 'Noturno', 'Integral')),
-    CONSTRAINT turma_num_vagas_ck CHECK (num_vagas > 0)
+    CONSTRAINT turma_num_vagas_ck CHECK (num_vagas > 0),
+    CONSTRAINT turma_periodo_ck CHECK (REGEXP_LIKE(periodo, '^[0-9]{4}\.[12]$'))
 );
 
 CREATE TABLE horario_turma
@@ -132,7 +135,8 @@ CREATE TABLE horario_turma
     cod_turma varchar2(10),
     horario varchar2(20),
     CONSTRAINT horario_turma_pk PRIMARY KEY (cod_turma, horario),
-    CONSTRAINT horario_turma_fk FOREIGN KEY (cod_turma) REFERENCES turma(cod_turma)
+    CONSTRAINT horario_turma_fk FOREIGN KEY (cod_turma) REFERENCES turma(cod_turma),
+    CONSTRAINT horario_turma_ck CHECK (REGEXP_LIKE(horario, '^[2-7]+[MTN][1-6]+$'))
 );
 
 CREATE TABLE sala
@@ -212,7 +216,7 @@ CREATE TABLE compoe_a_grade_curricular_de
     CONSTRAINT compoe_disciplina_fk FOREIGN KEY (codigo_disciplina) REFERENCES disciplina(codigo),
     CONSTRAINT compoe_curso_fk FOREIGN KEY (codigo_id) REFERENCES curso(codigo_id),
     CONSTRAINT compoe_tipo_ck CHECK (tipo IN ('Obrigatória', 'Eletiva')),
-    CONSTRAINT compoe_periodo_ck CHECK (periodo_sugerido > 0)
+    CONSTRAINT compoe_periodo_ck CHECK (periodo_sugerido IS NULL OR periodo_sugerido BETWEEN 1 AND 12),CONSTRAINT compoe_obrigatoria_ck CHECK (tipo = 'Eletiva' OR periodo_sugerido IS NOT NULL)
 );
 
 CREATE TABLE desempenho_em
@@ -233,7 +237,7 @@ CREATE TABLE vincula_se_a
     codigo_curso integer,
     data_ingresso date,
     situacao varchar2(20) NOT NULL,
-    coeficiente_rendimento number(3,1) NOT NULL,
+    coeficiente_rendimento number(3,1),
     forma_ingresso varchar2(20) NOT NULL,
     data_saida date,
     CONSTRAINT vincula_pk PRIMARY KEY (cpf_aluno, codigo_curso, data_ingresso),
@@ -242,7 +246,15 @@ CREATE TABLE vincula_se_a
     CONSTRAINT vincula_situacao_ck CHECK (situacao IN ('Ativo', 'Trancado', 'Formado', 'Desligado')),
     CONSTRAINT vincula_coeficiente_ck CHECK (coeficiente_rendimento BETWEEN 0 AND 10),
     CONSTRAINT vincula_ingresso_ck CHECK (forma_ingresso IN ('Vestibular', 'SISU', 'Transferência', 'Outro')),
-    CONSTRAINT vincula_data_ck CHECK (data_saida > data_ingresso)
+    CONSTRAINT vincula_saida_ck CHECK ((situacao IN ('Ativo', 'Trancado') AND data_saida IS NULL) OR (situacao IN ('Formado', 'Desligado') AND data_saida IS NOT NULL)),
+    CONSTRAINT vincula_data_ck CHECK (data_saida IS NULL OR data_saida >= data_ingresso)
+);
+
+CREATE UNIQUE INDEX vinculo_ativo_uk
+    ON vincula_se_a (
+        CASE
+            WHEN data_saida IS NULL THEN cpf_aluno
+    END
 );
 
 CREATE TABLE lotacao
@@ -255,8 +267,16 @@ CREATE TABLE lotacao
     CONSTRAINT lotacao_pk PRIMARY KEY (cpf_professor, sigla_dept, data_admissao),
     CONSTRAINT lotacao_professor_fk FOREIGN KEY (cpf_professor) REFERENCES professor(cpf_pessoa),
     CONSTRAINT lotacao_departamento_fk FOREIGN KEY (sigla_dept) REFERENCES departamento(sigla),
-    CONSTRAINT lotacao_data_ck CHECK (data_encerramento > data_admissao),
+    CONSTRAINT lotacao_data_ck
+    CHECK (data_encerramento IS NULL OR data_encerramento >= data_admissao),
     CONSTRAINT lotacao_regime_ck CHECK (regime_trabalho IN ('40 horas', '20 horas', 'Dedicação exclusiva'))
+);
+
+CREATE UNIQUE INDEX lotacao_vigente_uk
+ON lotacao (
+    CASE
+        WHEN data_encerramento IS NULL THEN cpf_professor
+    END
 );
 
 CREATE TABLE reserva

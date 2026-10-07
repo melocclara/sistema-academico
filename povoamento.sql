@@ -1,330 +1,681 @@
-/* Departamento */
-INSERT INTO Departamento (sigla, nome, localizacao, telefone)
-VALUES ('CIN', 'CENTRO DE INFORMÁTICA', 'AV. DOS REITORES, 140', 5581912345678);
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('CIN', 'CENTRO DE INFORMÁTICA', 'AV. JORNALISTA ANÍBAL FERNANDES, S/N - CIDADE UNIVERSITÁRIA', '558121268400');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DMAT', 'DEPARTAMENTO DE MATEMÁTICA', 'CCEN - BLOCO B, 2º ANDAR', '5581925988000');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DEINFO', 'DEPARTAMENTO DE ESTATÍSTICA E INFORMÁTICA', 'CCEN - BLOCO C, 3º ANDAR', '558121268402');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DF', 'DEPARTAMENTO DE FÍSICA', 'CCEN - BLOCO D, 4º ANDAR', '5581952880483');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DQF', 'DEPARTAMENTO DE QUÍMICA FUNDAMENTAL', 'CCEN - BLOCO A, 1º ANDAR', '558121268404');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DLET', 'DEPARTAMENTO DE LETRAS', 'CAC - BLOCO B, 2º ANDAR', NULL);
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DHIS', 'DEPARTAMENTO DE HISTÓRIA', 'CFCH - BLOCO C, 3º ANDAR', '558121268406');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DGEO', 'DEPARTAMENTO DE CIÊNCIAS GEOGRÁFICAS', 'CFCH - BLOCO D, 4º ANDAR', '5581977446522');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DFIL', 'DEPARTAMENTO DE FILOSOFIA', 'CFCH - BLOCO A, 1º ANDAR', '558121268408');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DPSI', 'DEPARTAMENTO DE PSICOLOGIA', 'CFCH - BLOCO B, 2º ANDAR', '5581978695681');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DECO', 'DEPARTAMENTO DE CIÊNCIAS ECONÔMICAS', 'CCSA - BLOCO C, 3º ANDAR', '558121268410');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DADM', 'DEPARTAMENTO DE CIÊNCIAS ADMINISTRATIVAS', 'CCSA - BLOCO D, 4º ANDAR', NULL);
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DCON', 'DEPARTAMENTO DE CIÊNCIAS CONTÁBEIS', 'CCSA - BLOCO A, 1º ANDAR', '558121268412');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DDIR', 'DEPARTAMENTO DE DIREITO', 'CCJ - BLOCO B, 2º ANDAR', '5581996865468');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DMED', 'DEPARTAMENTO DE MEDICINA CLÍNICA', 'CCS - BLOCO C, 3º ANDAR', '558121268414');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DENF', 'DEPARTAMENTO DE ENFERMAGEM', 'CCS - BLOCO D, 4º ANDAR', '5581923775684');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DNUT', 'DEPARTAMENTO DE NUTRIÇÃO', 'CCS - BLOCO A, 1º ANDAR', '558121268416');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DFAR', 'DEPARTAMENTO DE CIÊNCIAS FARMACÊUTICAS', 'CCS - BLOCO B, 2º ANDAR', NULL);
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DBOT', 'DEPARTAMENTO DE BOTÂNICA', 'CB - BLOCO C, 3º ANDAR', '558121268418');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DZOO', 'DEPARTAMENTO DE ZOOLOGIA', 'CB - BLOCO D, 4º ANDAR', '5581939968745');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DENGC', 'DEPARTAMENTO DE ENGENHARIA CIVIL', 'CTG - BLOCO A, 1º ANDAR', '558121268420');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DENGE', 'DEPARTAMENTO DE ENGENHARIA ELÉTRICA', 'CTG - BLOCO B, 2º ANDAR', '5581990668968');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DENGM', 'DEPARTAMENTO DE ENGENHARIA MECÂNICA', 'CTG - BLOCO C, 3º ANDAR', '558121268422');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DENGQ', 'DEPARTAMENTO DE ENGENHARIA QUÍMICA', 'CTG - BLOCO D, 4º ANDAR', NULL);
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DARQ', 'DEPARTAMENTO DE ARQUITETURA E URBANISMO', 'CAC - BLOCO A, 1º ANDAR', '558121268424');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DART', 'DEPARTAMENTO DE ARTES', 'CAC - BLOCO B, 2º ANDAR', '5581993414184');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DMUS', 'DEPARTAMENTO DE MÚSICA', 'CAC - BLOCO C, 3º ANDAR', '558121268426');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DEDU', 'DEPARTAMENTO DE EDUCAÇÃO', 'CE - BLOCO D, 4º ANDAR', '5581984700087');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DCOM', 'DEPARTAMENTO DE COMUNICAÇÃO SOCIAL', 'CAC - BLOCO A, 1º ANDAR', '558121268428');
+INSERT INTO Departamento (sigla, nome, localizacao, telefone) VALUES ('DGEOL', 'DEPARTAMENTO DE GEOLOGIA', 'CTG - BLOCO B, 2º ANDAR', NULL);
 
-/* Pessoas */
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (12345678901, 'Ana Silva de Albuquerque', TO_DATE('2002-02-26', 'YYYY-MM-DD'), 'MULHER CIS', 'asa@ufpe.br', 'asa', 'AlB2387%#');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (23456789012, 'Filipe Bastos Cavalcanti', TO_DATE('1978-12-04', 'YYYY-MM-DD'), 'HOMEM TRANS', 'fbc@ufpe.br', 'fbc', 'FopC937@@%');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (34567890123, 'Renata Gomes Tavares', TO_DATE('1975-05-17', 'YYYY-MM-DD'), 'MULHER CIS', 'rgt@ufpe.br', 'rgt', 'Rg7T!2024');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('09879730968', 'Ana Silva de Pereira', TO_DATE('2005-01-27', 'YYYY-MM-DD'), 'MULHER CIS', 'ana.pereira@ufpe.br', 'anasilva', 'An2322#K22');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('75364556824', 'João Costa Cavalcanti', TO_DATE('2006-09-10', 'YYYY-MM-DD'), 'HOMEM CIS', 'joao.cavalcanti@ufpe.br', 'joacosta', 'Jo2250*M21');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('47294055793', 'Beatriz Martins Monteiro', TO_DATE('2006-08-28', 'YYYY-MM-DD'), 'MULHER TRANS', 'beatriz.monteiro@ufpe.br', 'beamartins', 'Be7917#P84');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('16897684600', 'Gabriel Duarte Lima', TO_DATE('2007-04-25', 'YYYY-MM-DD'), 'HOMEM TRANS', 'gabriel.lima@ufpe.br', 'gabduarte', 'Ga8851!T13');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('20819672785', 'Júlia Freitas Gomes', TO_DATE('2005-11-16', 'YYYY-MM-DD'), 'NÃO BINÁRIO', 'julia.gomes@ufpe.br', 'julfreitas', 'Ju4750#X99');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('04864887640', 'Lucas Vasconcelos de Bezerra', TO_DATE('1998-01-05', 'YYYY-MM-DD'), 'HOMEM CIS', 'lucas.bezerra@ufpe.br', 'lucvasconcelos', 'Lu8095@K44');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('97875347718', 'Mariana Oliveira Souza', TO_DATE('1998-05-11', 'YYYY-MM-DD'), 'OUTRO', 'mariana.souza@ufpe.br', 'maroliveira', 'Ma9376%Q81');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('71784726770', 'Rafael Almeida Rocha', TO_DATE('2003-02-07', 'YYYY-MM-DD'), NULL, 'rafael.rocha@ufpe.br', 'rafalmeida', 'Ra2053*J73');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('62701079896', 'Letícia Rocha Siqueira', TO_DATE('1999-10-02', 'YYYY-MM-DD'), 'MULHER CIS', 'leticia.siqueira@ufpe.br', 'letrocha', 'Le2360!G41');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('84520599733', 'Matheus Lopes Oliveira', TO_DATE('2007-03-20', 'YYYY-MM-DD'), 'HOMEM CIS', 'matheus.oliveira@ufpe.br', 'matlopes', 'Ma3209!H70');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('04162294844', 'Camila Bezerra de Barbosa', TO_DATE('2001-07-01', 'YYYY-MM-DD'), 'MULHER TRANS', 'camila.barbosa@ufpe.br', 'cambezerra', 'Ca7750%E76');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('16105500807', 'Pedro Coelho Freitas', TO_DATE('2005-06-04', 'YYYY-MM-DD'), 'HOMEM TRANS', 'pedro.freitas@ufpe.br', 'pedcoelho', 'Pe8799$Y48');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('77992298373', 'Larissa Lima Santos', TO_DATE('2007-04-22', 'YYYY-MM-DD'), 'MULHER CIS', 'larissa.santos@ufpe.br', 'larlima', 'La8104!M68');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('18603208050', 'Thiago Carvalho Martins', TO_DATE('1998-03-21', 'YYYY-MM-DD'), 'NÃO BINÁRIO', 'thiago.martins@ufpe.br', 'thicarvalho', 'Th8402*G71');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('83822264695', 'Isabela Cavalcanti Mendonça', TO_DATE('2002-03-12', 'YYYY-MM-DD'), 'MULHER CIS', 'isabela.mendonca@ufpe.br', 'isacavalcanti', 'Is9732%C59');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('04776472511', 'Rodrigo Barros de Silva', TO_DATE('2006-09-26', 'YYYY-MM-DD'), 'HOMEM CIS', 'rodrigo.silva@ufpe.br', 'rodbarros', 'Ro9508%R25');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('41330175603', 'Fernanda Medeiros Ribeiro', TO_DATE('2003-03-12', 'YYYY-MM-DD'), 'MULHER CIS', 'fernanda.ribeiro@ufpe.br', 'fermedeiros', 'Fe9930*F13');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('89831948980', 'Bruno Fonseca Teixeira', TO_DATE('2002-11-18', 'YYYY-MM-DD'), 'HOMEM CIS', 'bruno.teixeira@ufpe.br', 'brufonseca', 'Br4513!K82');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('21416210547', 'Amanda Ferreira Fonseca', TO_DATE('2006-06-09', 'YYYY-MM-DD'), NULL, 'amanda.fonseca@ufpe.br', 'amaferreira', 'Am4039*X23');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('91452441030', 'Gustavo Ribeiro Araújo', TO_DATE('1998-02-08', 'YYYY-MM-DD'), 'OUTRO', 'gustavo.araujo@ufpe.br', 'gusribeiro', 'Gu7744$Q11');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('04118955750', 'Natália Menezes de Barros', TO_DATE('2001-10-15', 'YYYY-MM-DD'), 'MULHER CIS', 'natalia.barros@ufpe.br', 'natmenezes', 'Na1622%M87');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('61584645032', 'Felipe Mendonça Nogueira', TO_DATE('2003-05-24', 'YYYY-MM-DD'), 'HOMEM CIS', 'felipe.nogueira@ufpe.br', 'felmendonca', 'Fe8155#K98');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('14659085368', 'Carolina Pinheiro Carvalho', TO_DATE('2007-02-04', 'YYYY-MM-DD'), 'NÃO BINÁRIO', 'carolina.carvalho@ufpe.br', 'carpinheiro', 'Ca1919*D30');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('02859406948', 'André Santos Moreira', TO_DATE('2004-04-25', 'YYYY-MM-DD'), 'HOMEM CIS', 'andre.moreira@ufpe.br', 'andsantos', 'An3069$Q59');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('63228088693', 'Vitória Rodrigues Coelho', TO_DATE('1998-05-18', 'YYYY-MM-DD'), 'MULHER CIS', 'vitoria.coelho@ufpe.br', 'vitrodrigues', 'Vi5177@H12');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('06452912852', 'Leonardo Barbosa de Nascimento', TO_DATE('2003-11-17', 'YYYY-MM-DD'), 'HOMEM CIS', 'leonardo.nascimento@ufpe.br', 'leobarbosa', 'Le1622*T43');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('50037038214', 'Helena Tavares Lopes', TO_DATE('2006-05-11', 'YYYY-MM-DD'), 'MULHER TRANS', 'helena.lopes@ufpe.br', 'heltavares', 'He7538*N39');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('35577879400', 'Davi Siqueira Guimarães', TO_DATE('1995-01-12', 'YYYY-MM-DD'), 'HOMEM TRANS', 'davi.guimaraes@ufpe.br', 'davsiqueira', 'Da4078@X62');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('86021458451', 'Cecília Guimarães Almeida', TO_DATE('1992-10-02', 'YYYY-MM-DD'), 'MULHER CIS', 'cecilia.almeida@cin.ufpe.br', 'cecguimaraes', 'Ce3260*D12');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('66882811202', 'Caio Souza Tavares', TO_DATE('1988-12-19', 'YYYY-MM-DD'), NULL, 'caio.tavares@ufpe.br', 'caisouza', 'Ca7376$U43');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('02448452636', 'Luíza Nascimento de Vasconcelos', TO_DATE('1990-07-12', 'YYYY-MM-DD'), 'MULHER CIS', 'luiza.vasconcelos@cin.ufpe.br', 'luinascimento', 'Lu4091*X11');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('82802582216', 'Henrique Gomes Rodrigues', TO_DATE('1960-06-03', 'YYYY-MM-DD'), 'NÃO BINÁRIO', 'henrique.rodrigues@ufpe.br', 'hengomes', 'He1465#T95');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('54382993237', 'Bianca Moreira Duarte', TO_DATE('1964-07-09', 'YYYY-MM-DD'), 'OUTRO', 'bianca.duarte@cin.ufpe.br', 'biamoreira', 'Bi2741$S23');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('94157718879', 'Igor Monteiro Pinheiro', TO_DATE('1982-02-03', 'YYYY-MM-DD'), 'HOMEM CIS', 'igor.pinheiro@ufpe.br', 'igomonteiro', 'Ig5047$Y68');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('17443256850', 'Aline Nogueira Costa', TO_DATE('1985-06-06', 'YYYY-MM-DD'), 'MULHER TRANS', 'aline.costa@cin.ufpe.br', 'alinogueira', 'Al6434$Y73');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('07355696300', 'Renato Pereira de Menezes', TO_DATE('1968-07-09', 'YYYY-MM-DD'), 'HOMEM TRANS', 'renato.menezes@ufpe.br', 'renpereira', 'Re3529%V94');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('51547428422', 'Débora Araújo Machado', TO_DATE('1967-05-10', 'YYYY-MM-DD'), 'MULHER CIS', 'debora.machado@cin.ufpe.br', 'debaraujo', 'De4838$E81');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('97660856502', 'Márcio Albuquerque Ferreira', TO_DATE('1973-07-12', 'YYYY-MM-DD'), 'HOMEM CIS', 'marcio.ferreira@ufpe.br', 'maralbuquerque', 'Ma2556*S96');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('50620484276', 'Patrícia Teixeira Albuquerque', TO_DATE('1986-08-28', 'YYYY-MM-DD'), 'MULHER CIS', 'patricia.albuquerque@cin.ufpe.br', 'patteixeira', 'Pa6472!X88');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('75003145071', 'Sérgio Machado Medeiros', TO_DATE('1983-02-18', 'YYYY-MM-DD'), 'HOMEM CIS', 'sergio.medeiros@ufpe.br', 'sermachado', 'Se4427%T45');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('08012537303', 'Cláudia Silva de Pereira', TO_DATE('1986-12-17', 'YYYY-MM-DD'), 'NÃO BINÁRIO', 'claudia.pereira@cin.ufpe.br', 'clasilva', 'Cl3798*K20');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('98210460293', 'Antônio Costa Cavalcanti', TO_DATE('1981-06-12', 'YYYY-MM-DD'), 'HOMEM CIS', 'antonio.cavalcanti@ufpe.br', 'antcosta', 'An9411@S94');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('59747540770', 'Simone Martins Monteiro', TO_DATE('1976-08-07', 'YYYY-MM-DD'), 'MULHER TRANS', 'simone.monteiro@cin.ufpe.br', 'simmartins', 'Si3182#S56');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('54864390673', 'Vinícius Duarte Lima', TO_DATE('1992-11-18', 'YYYY-MM-DD'), 'HOMEM TRANS', 'vinicius.lima@ufpe.br', 'vinduarte', 'Vi2057*X94');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('47918895762', 'Tânia Freitas Gomes', TO_DATE('1971-02-18', 'YYYY-MM-DD'), 'MULHER CIS', 'tania.gomes@cin.ufpe.br', 'tanfreitas', 'Ta6209*M56');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('04886193005', 'Fábio Vasconcelos de Bezerra', TO_DATE('1992-09-05', 'YYYY-MM-DD'), 'OUTRO', 'fabio.bezerra@ufpe.br', 'fabvasconcelos', 'Fa8599@G64');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('83472855606', 'Raquel Oliveira Souza', TO_DATE('1969-10-18', 'YYYY-MM-DD'), 'MULHER CIS', 'raquel.souza@cin.ufpe.br', 'raqoliveira', 'Ra9727!U34');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('22290044253', 'Otávio Almeida Rocha', TO_DATE('1982-03-15', 'YYYY-MM-DD'), 'HOMEM CIS', 'otavio.rocha@ufpe.br', 'otaalmeida', 'Ot3280$U98');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('22022697898', 'Luciana Rocha Siqueira', TO_DATE('1983-09-03', 'YYYY-MM-DD'), 'MULHER CIS', 'luciana.siqueira@cin.ufpe.br', 'lucrocha', 'Lu1475$H75');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('76252807052', 'Ricardo Lopes Oliveira', TO_DATE('1976-06-25', 'YYYY-MM-DD'), 'NÃO BINÁRIO', 'ricardo.oliveira@ufpe.br', 'riclopes', 'Ri1953#N85');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('02831663202', 'Eduarda Bezerra de Barbosa', TO_DATE('1973-06-06', 'YYYY-MM-DD'), 'MULHER TRANS', 'eduarda.barbosa@cin.ufpe.br', 'edubezerra', 'Ed4950@Y73');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('86675347810', 'Wagner Coelho Freitas', TO_DATE('1967-02-12', 'YYYY-MM-DD'), NULL, 'wagner.freitas@ufpe.br', 'wagcoelho', 'Wa8893#G35');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('92123636010', 'Priscila Lima Santos', TO_DATE('1977-05-24', 'YYYY-MM-DD'), 'MULHER CIS', 'priscila.santos@cin.ufpe.br', 'prilima', 'Pr9960@X91');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('56078745751', 'Maurício Carvalho Martins', TO_DATE('1974-06-15', 'YYYY-MM-DD'), 'HOMEM CIS', 'mauricio.martins@ufpe.br', 'maucarvalho', 'Ma3260#E81');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('69908541706', 'Sônia Cavalcanti Mendonça', TO_DATE('1966-05-10', 'YYYY-MM-DD'), 'MULHER CIS', 'sonia.mendonca@cin.ufpe.br', 'soncavalcanti', 'So8676$U77');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('01901879135', 'Alexandre Barros de Silva', TO_DATE('1990-09-01', 'YYYY-MM-DD'), 'HOMEM CIS', 'alexandre.silva@ufpe.br', 'alebarros', 'Al7328*V68');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('25201612806', 'Valéria Medeiros Ribeiro', TO_DATE('1967-12-28', 'YYYY-MM-DD'), 'MULHER CIS', 'valeria.ribeiro@cin.ufpe.br', 'valmedeiros', 'Va5177#B19');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('52473573611', 'Eduardo Fonseca Teixeira', TO_DATE('1971-08-08', 'YYYY-MM-DD'), 'HOMEM CIS', 'eduardo.teixeira@ufpe.br', 'edufonseca', 'Ed4906!M63');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('92731979658', 'Tereza Ferreira Fonseca', TO_DATE('1976-07-24', 'YYYY-MM-DD'), 'NÃO BINÁRIO', 'tereza.fonseca@ufpe.br', 'terferreira', 'Te8910!A73');
+INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha) VALUES ('08724385468', 'Marcos Ribeiro Araújo', TO_DATE('1981-10-28', 'YYYY-MM-DD'), 'HOMEM TRANS', 'marcos.araujo@ufpe.br', 'marribeiro', 'Ma8073*V13');
 
-/* Aluno E Professor */
-INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES (12345678901, 20251000001);
-INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES (23456789012, 90000001, 'ADJUNTO');
-INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES (34567890123, 90000002, 'TITULAR');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('09879730968', '20191000001');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('75364556824', '20222000002');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('47294055793', '20251000003');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('16897684600', '20202000004');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('20819672785', '20231000005');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('04864887640', '20182000006');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('97875347718', '20211000007');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('71784726770', '20242000008');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('62701079896', '20251000009');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('84520599733', '20262000010');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('04162294844', '20221000011');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('16105500807', '20232000012');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('77992298373', '20241000013');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('18603208050', '20192000014');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('83822264695', '20251000015');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('04776472511', '20262000016');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('41330175603', '20211000017');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('89831948980', '20222000018');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('21416210547', '20231000019');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('91452441030', '20242000020');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('04118955750', '20251000021');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('61584645032', '20262000022');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('14659085368', '20201000023');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('02859406948', '20242000024');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('63228088693', '20251000025');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('06452912852', '20262000026');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('50037038214', '20231000027');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('35577879400', '20222000028');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('86021458451', '20211000029');
+INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES ('66882811202', '20252000030');
 
-/* Curso */
-INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento)
-VALUES (seq_curso.NEXTVAL, 'CIÊNCIA DA COMPUTAÇÃO', 4000, 'PRESENCIAL', 'INTEGRAL', 100, 'BACHARELADO', 34567890123, 'CIN');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('35577879400', '0001024', 'SUBSTITUTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('86021458451', '0001061', 'TITULAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('66882811202', '0001098', 'ASSOCIADO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('02448452636', '0001135', 'ADJUNTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('82802582216', '0001172', 'ASSISTENTE');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('54382993237', '0001209', 'AUXILIAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('94157718879', '0001246', 'AUXILIAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('17443256850', '0001283', 'SUBSTITUTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('07355696300', '0001320', 'TITULAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('51547428422', '0001357', 'ASSOCIADO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('97660856502', '0001394', 'ADJUNTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('50620484276', '0001431', 'ASSISTENTE');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('75003145071', '0001468', 'ASSISTENTE');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('08012537303', '0001505', 'AUXILIAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('98210460293', '0001542', 'SUBSTITUTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('59747540770', '0001579', 'TITULAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('54864390673', '0001616', 'ASSOCIADO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('47918895762', '0001653', 'ADJUNTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('04886193005', '0001690', 'ADJUNTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('83472855606', '0001727', 'ASSISTENTE');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('22290044253', '0001764', 'AUXILIAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('22022697898', '0001801', 'SUBSTITUTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('76252807052', '0001838', 'TITULAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('02831663202', '0001875', 'ASSOCIADO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('86675347810', '0001912', 'ASSOCIADO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('92123636010', '0001949', 'ADJUNTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('56078745751', '0001986', 'ASSISTENTE');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('69908541706', '0002023', 'AUXILIAR');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('01901879135', '0002060', 'SUBSTITUTO');
+INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES ('25201612806', '0002097', 'TITULAR');
 
-/* Disciplina */
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('CIN001', 'Banco de Dados', 'Modelagem, relacional, gerenciamento de dados e informação, SQL', 60, 30, 6);
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'CIÊNCIA DA COMPUTAÇÃO', 4000, 'PRESENCIAL', 'INTEGRAL', 100, 'BACHARELADO', '35577879400', 'CIN');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'ENGENHARIA DA COMPUTAÇÃO', 3600, 'PRESENCIAL', 'INTEGRAL', 60, 'BACHARELADO', '17443256850', 'CIN');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'SISTEMAS DE INFORMAÇÃO', 3000, 'PRESENCIAL', 'NOTURNO', 80, 'BACHARELADO', '98210460293', 'CIN');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'CIÊNCIA DE DADOS', 3000, 'HÍBRIDO', 'MATUTINO', 40, 'BACHARELADO', NULL, 'DEINFO');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'MATEMÁTICA - LICENCIATURA', 2800, 'PRESENCIAL', 'NOTURNO', 50, 'LICENCIATURA', '01901879135', 'DMAT');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'MATEMÁTICA - BACHARELADO', 3000, 'PRESENCIAL', 'VESPERTINO', 40, 'BACHARELADO', '54382993237', 'DMAT');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'ESTATÍSTICA', 2900, 'PRESENCIAL', 'MATUTINO', 45, 'BACHARELADO', '75003145071', 'DEINFO');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'FÍSICA - BACHARELADO', 3300, 'PRESENCIAL', 'INTEGRAL', 50, 'BACHARELADO', '83472855606', 'DF');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'FÍSICA - LICENCIATURA (EAD)', 2900, 'REMOTO', 'VESPERTINO', 120, 'LICENCIATURA', '56078745751', 'DF');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'QUÍMICA - LICENCIATURA', 3000, 'PRESENCIAL', 'NOTURNO', 40, 'LICENCIATURA', '02448452636', 'DQF');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'QUÍMICA INDUSTRIAL', 3600, 'PRESENCIAL', 'INTEGRAL', 40, 'BACHARELADO', NULL, 'DQF');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'LETRAS - LÍNGUA PORTUGUESA', 2800, 'PRESENCIAL', 'MATUTINO', 0, 'LICENCIATURA', '47918895762', 'DLET');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'LETRAS - LÍNGUA INGLESA', 2800, 'HÍBRIDO', 'NOTURNO', 35, 'LICENCIATURA', '86675347810', 'DLET');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'HISTÓRIA', 2800, 'PRESENCIAL', 'NOTURNO', 60, 'LICENCIATURA', '86021458451', 'DHIS');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'GEOGRAFIA', 2900, 'PRESENCIAL', 'MATUTINO', 50, 'BACHARELADO', '07355696300', 'DGEO');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'FILOSOFIA', 2700, 'REMOTO', 'NOTURNO', 100, 'LICENCIATURA', '59747540770', 'DFIL');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'PSICOLOGIA', 4000, 'PRESENCIAL', 'INTEGRAL', 60, 'BACHARELADO', '76252807052', 'DPSI');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'CIÊNCIAS ECONÔMICAS', 3000, 'PRESENCIAL', 'NOTURNO', 80, 'BACHARELADO', NULL, 'DECO');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'ADMINISTRAÇÃO', 3000, 'HÍBRIDO', 'NOTURNO', 100, 'BACHARELADO', '94157718879', 'DADM');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'CIÊNCIAS CONTÁBEIS', 3000, 'PRESENCIAL', 'NOTURNO', 90, 'BACHARELADO', '08012537303', 'DCON');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'DIREITO', 3700, 'PRESENCIAL', 'MATUTINO', 150, 'BACHARELADO', '22290044253', 'DDIR');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'MEDICINA', 7200, 'PRESENCIAL', 'INTEGRAL', 120, 'BACHARELADO', '69908541706', 'DMED');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'ENFERMAGEM', 4000, 'PRESENCIAL', 'INTEGRAL', 60, 'BACHARELADO', '82802582216', 'DENF');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'NUTRIÇÃO', 3300, 'PRESENCIAL', 'VESPERTINO', 40, 'BACHARELADO', '50620484276', 'DNUT');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'FARMÁCIA', 4000, 'PRESENCIAL', 'INTEGRAL', 50, 'BACHARELADO', NULL, 'DFAR');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'CIÊNCIAS BIOLÓGICAS', 3200, 'PRESENCIAL', 'VESPERTINO', 60, 'BACHARELADO', '92123636010', 'DBOT');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'ENGENHARIA CIVIL', 3800, 'PRESENCIAL', 'INTEGRAL', 110, 'BACHARELADO', '66882811202', 'DENGC');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'ENGENHARIA ELÉTRICA', 3800, 'PRESENCIAL', 'INTEGRAL', 100, 'BACHARELADO', '51547428422', 'DENGE');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'ARQUITETURA E URBANISMO', 3700, 'PRESENCIAL', 'INTEGRAL', 80, 'BACHARELADO', '35577879400', 'DARQ');
+INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento) VALUES (seq_curso.NEXTVAL, 'MÚSICA - LICENCIATURA', 2800, 'PRESENCIAL', 'VESPERTINO', 25, 'LICENCIATURA', '17443256850', 'DMUS');
 
-/* Turma */
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina)
-VALUES (seq_turma.NEXTVAL, '2026.2', 'MATUTINO', 50, 'CIN001');
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN001', 'Banco de Dados', 'Modelagem, relacional, gerenciamento de dados e informação, SQL', 60, 30, 6);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN002', 'Estruturas de Dados', 'Listas, pilhas, filas, tabelas hash, árvores e grafos. Análise de complexidade de algoritmos.', 60, 30, 6);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN003', 'Introdução à Programação', 'Variáveis, estruturas de controle, funções, vetores e noções de recursão.', 30, 60, 6);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN004', 'Projeto de Software', 'Desenvolvimento em equipe de um sistema completo, com entregas incrementais e revisão por pares.', 0, 60, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN005', 'Algoritmos Avançados', 'Programação dinâmica, algoritmos gulosos, grafos e introdução à NP-completude.', 45, 15, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN006', 'Tópicos Especiais em Banco de Dados', 'Bancos NoSQL, processamento de transações, otimização de consultas e bancos distribuídos.', 30, 30, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN007', 'Redes de Computadores', 'Modelo de camadas, protocolos TCP/IP, roteamento, redes sem fio e segurança básica.', 60, 30, 6);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN008', 'Sistemas Operacionais', 'Processos, threads, escalonamento, memória virtual, sistemas de arquivos e concorrência.', 60, 30, 6);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN009', 'Engenharia de Software', 'Processos de desenvolvimento, requisitos, modelagem, testes e manutenção de software.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('CIN010', 'Inteligência Artificial', 'Busca, representação de conhecimento, aprendizado de máquina e agentes inteligentes.', 60, 30, 6);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('MAT001', 'Cálculo 1', 'Limites, continuidade, derivadas, integrais e aplicações.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('MAT002', 'Álgebra Vetorial e Linear para Computação', 'Geometria analítica, matrizes, sistemas lineares, espaços vetoriais e autovalores.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('MAT003', 'Cálculo 2', 'Integrais impróprias, sequências, séries numéricas e de potências, funções de várias variáveis.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('MAT004', 'Matemática Discreta', 'Lógica proposicional, conjuntos, relações, indução, contagem e grafos.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('MAT005', 'Probabilidade e Estatística', 'Variáveis aleatórias, distribuições, estimação, testes de hipóteses e regressão.', 45, 15, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('FIS001', 'Fundamentos de Física', 'Mecânica clássica, ondas e termodinâmica (inclui o problema d''água em ebulição).', 45, 0, 3);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('FIS002', 'Física Experimental', 'Medidas, incertezas e experimentos de mecânica e ondas em laboratório.', 0, 30, 2);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('QUI001', 'Química Geral', 'Estrutura atômica, ligações químicas, estequiometria, soluções e equilíbrio.', 45, 30, 5);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('QUI002', 'Química Orgânica', 'Funções orgânicas, estereoquímica, mecanismos de reação e síntese.', 60, 30, 6);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('LET001', 'Leitura e Produção de Textos', 'Gêneros textuais acadêmicos: resumo, resenha, artigo e relatório técnico.', 30, 0, 2);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('LET002', 'Linguística Aplicada', 'Aquisição da linguagem, variação linguística e análise do discurso.', 45, 0, 3);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('HIS001', 'História do Brasil', 'Colônia, Império e República: economia, sociedade e política.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('FIL001', 'Introdução à Filosofia', 'Origem do pensamento filosófico, ética, conhecimento e política.', 45, 0, 3);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('PSI001', 'Psicologia Geral', 'Percepção, aprendizagem, memória, motivação e desenvolvimento humano.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('ECO001', 'Microeconomia', 'Oferta e demanda, teoria do consumidor, firmas e estruturas de mercado.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('ADM001', 'Fundamentos de Administração', 'Teorias administrativas, planejamento, organização, direção e controle.', 45, 15, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('DIR001', 'Introdução ao Direito', 'Conceitos fundamentais, fontes do direito, norma jurídica e ordenamento.', 60, 0, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('BIO001', 'Biologia Celular', 'Estrutura e função das células, organelas, membranas e divisão celular.', 45, 30, 5);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('ENG001', 'Desenho Técnico', 'Normas, projeções ortogonais, cortes, cotagem e desenho assistido por computador.', 15, 45, 4);
+INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos) VALUES ('MUS001', 'Percepção Musical', 'Treinamento auditivo, solfejo, ritmo e harmonia elementar.', 30, 30, 4);
 
-/* Sala */
-INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar)
-VALUES (seq_sala.NEXTVAL, 60, 'CENTRO DE INFORMÁTICA', 'A', 2);
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'MATUTINO', 50, 'CIN001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'INTEGRAL', 60, 'CIN001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'NOTURNO', 40, 'CIN002');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'VESPERTINO', 45, 'CIN003');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.1', 'VESPERTINO', 50, 'CIN003');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.1', 'MATUTINO', 40, 'CIN004');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.2', 'INTEGRAL', 30, 'CIN005');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.2', 'NOTURNO', 0, 'CIN006');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.1', 'NOTURNO', 25, 'CIN007');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'VESPERTINO', 20, 'CIN008');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'MATUTINO', 35, 'CIN009');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'INTEGRAL', 80, 'CIN010');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'INTEGRAL', 100, 'MAT001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'NOTURNO', 25, 'MAT001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.1', 'VESPERTINO', 0, 'MAT002');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.1', 'MATUTINO', 60, 'MAT003');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.1', 'MATUTINO', 45, 'MAT004');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.1', 'INTEGRAL', 70, 'MAT005');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.2', 'NOTURNO', 30, 'FIS001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.2', 'VESPERTINO', 55, 'FIS002');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.2', 'VESPERTINO', 90, 'QUI001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.2', 'MATUTINO', 15, 'QUI002');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.1', 'INTEGRAL', 120, 'LET001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.1', 'NOTURNO', 40, 'LET002');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.1', 'NOTURNO', 65, 'HIS001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.1', 'VESPERTINO', 35, 'FIL001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2024.2', 'MATUTINO', 200, 'PSI001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2024.2', 'INTEGRAL', 10, 'ECO001');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2024.2', 'INTEGRAL', 75, 'CIN002');
+INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2024.2', 'NOTURNO', 999, 'CIN001');
 
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 60, 'CENTRO DE INFORMÁTICA', 'A', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 40, 'CCEN', 'D', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 120, 'CAC', 'C1', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 30, 'CTG', 'F', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 80, 'CCS', 'C', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 0, 'CFCH', 'B2', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 45, 'CCJ', 'E', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 25, 'CCSA', 'B', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 200, 'CB', 'A1', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 50, 'CE', 'D2', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 35, 'CENTRO DE INFORMÁTICA', 'A', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 90, 'CCEN', 'D', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 20, 'CAC', 'C1', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 150, 'CTG', 'F', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 70, 'CCS', 'C', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 55, 'CFCH', 'B2', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 100, 'CCJ', 'E', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 28, 'CCSA', 'B', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 64, 'CB', 'A1', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 40, 'CE', 'D2', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 32, 'CENTRO DE INFORMÁTICA', 'A', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 180, 'CCEN', 'D', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 48, 'CAC', 'C1', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 22, 'CTG', 'F', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 75, 'CCS', 'C', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 110, 'CFCH', 'B2', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 38, 'CCJ', 'E', 4);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 60, 'CCSA', 'B', 0);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 16, 'CB', 'A1', 2);
+INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 250, 'CE', 'D2', 4);
 
-/* CASOS: Departamentos */
-INSERT INTO Departamento (sigla, nome, localizacao, telefone)
-VALUES ('DMAT', 'DEPARTAMENTO DE MATEMÁTICA', 'CCEN - AV. PROF. LUIZ FREIRE, S/N', 5581912340001);
-INSERT INTO Departamento (sigla, nome, localizacao, telefone)
-VALUES ('DEINFO', 'DEPARTAMENTO DE ESTATÍSTICA E INFORMÁTICA', 'AV. DOS FUNDADORES, 50', 5581912340002);
-INSERT INTO Departamento (sigla, nome, localizacao, telefone)
-VALUES ('DF', 'DEPARTAMENTO DE FÍSICA', 'CCEN - BLOCO B', NULL);
-INSERT INTO Departamento (sigla, nome, localizacao, telefone)
-VALUES ('DLET', 'DEPARTAMENTO DE LETRAS', 'CAC - 3º ANDAR', NULL);
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('1', 1, 'PROJETO', 20, TO_DATE('2026-08-08', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('1', 2, 'PROVA', 20, TO_DATE('2026-09-12', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('1', 3, 'SEMINÁRIO', 20, TO_DATE('2026-10-16', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('1', 4, 'MINI-PROVA', 40, TO_DATE('2026-11-20', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('2', 1, 'PROVA', 25, TO_DATE('2026-08-11', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('2', 2, 'SEMINÁRIO', 25, TO_DATE('2026-09-15', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('2', 3, 'MINI-PROVA', 25, TO_DATE('2026-10-19', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('2', 4, 'TRABALHO', 25, TO_DATE('2026-11-23', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('3', 1, 'SEMINÁRIO', 10, TO_DATE('2026-08-14', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('3', 2, 'MINI-PROVA', 30, TO_DATE('2026-09-18', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('3', 3, 'TRABALHO', 30, TO_DATE('2026-10-22', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('3', 4, 'PROVA', 30, TO_DATE('2026-11-06', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('4', 1, 'LISTA', 0, TO_DATE('2026-08-17', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('4', 2, 'TRABALHO', 30, TO_DATE('2026-09-21', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('4', 3, 'PROVA', 30, TO_DATE('2026-10-05', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('4', 4, 'PROJETO', 40, TO_DATE('2026-11-09', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('5', 1, 'TRABALHO', 20, TO_DATE('2026-03-20', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('5', 2, 'PROVA', 20, TO_DATE('2026-04-24', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('5', 3, 'PROJETO', 20, TO_DATE('2026-05-08', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('5', 4, 'PROVA', 40, TO_DATE('2026-06-12', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('6', 1, 'PROVA', 30, TO_DATE('2026-03-23', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('6', 2, 'PROJETO', 30, TO_DATE('2026-04-07', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('6', 3, 'PROVA', 40, TO_DATE('2026-05-11', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('6', 4, 'LISTA', 0, TO_DATE('2026-06-15', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('7', 1, 'PROJETO', 50, TO_DATE('2025-08-06', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('7', 2, 'PROVA', 50, TO_DATE('2025-09-10', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('8', 1, 'PROVA', 40, TO_DATE('2025-08-09', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('8', 2, 'SEMINÁRIO', 60, TO_DATE('2025-09-13', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('9', 1, 'SEMINÁRIO', 60, TO_DATE('2025-03-12', 'YYYY-MM-DD'));
+INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES ('9', 2, 'MINI-PROVA', 40, TO_DATE('2025-04-16', 'YYYY-MM-DD'));
 
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('09879730968', '1', 100, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('16897684600', '1', 95, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('97875347718', '1', 88, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('84520599733', '1', 76, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('77992298373', '2', 60, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('04776472511', '2', 45, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('21416210547', '2', 30, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('75364556824', '2', 0, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('20819672785', '3', 82, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('71784726770', '3', 91, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('04162294844', '3', 100, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('18603208050', '3', 95, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('41330175603', '4', 88, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('91452441030', '4', 76, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('47294055793', '4', 60, 'ATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('04864887640', '4', 45, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('62701079896', '5', 30, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('16105500807', '5', 0, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('83822264695', '5', 82, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('89831948980', '6', 91, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('09879730968', '6', 100, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('16897684600', '6', 95, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('97875347718', '7', 88, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('84520599733', '7', 76, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('77992298373', '7', 60, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('04776472511', '8', 45, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('21416210547', '8', 30, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('75364556824', '8', 0, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('20819672785', '9', 82, 'INATIVO');
+INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES ('71784726770', '9', 91, 'INATIVO');
 
-/* CASOS: Pessoas */
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (45678901234, 'João Pedro Ferreira Lima', TO_DATE('2003-07-14', 'YYYY-MM-DD'), 'HOMEM CIS', 'jpfl@ufpe.br', 'jpfl', 'Jp#2003!a');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (56789012345, 'Beatriz Nascimento Rocha', TO_DATE('1999-11-30', 'YYYY-MM-DD'), 'MULHER TRANS', 'bnr@ufpe.br', 'bnr', 'Bn@R1130');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (67890123456, 'Alex Menezes Barbosa', TO_DATE('2004-01-09', 'YYYY-MM-DD'), 'NAO-BINARIO', 'amb@ufpe.br', 'amb', 'Am*B0109');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (78901234567, 'Luiza Carvalho Duarte', TO_DATE('2000-04-22', 'YYYY-MM-DD'), 'OUTRO', 'lcd@ufpe.br', 'lcd', 'Lc$D2204');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (89012345678, 'Marcos Antônio de Souza', TO_DATE('1985-09-03', 'YYYY-MM-DD'), NULL, 'mas@ufpe.br', 'mas', 'Mz#S0903');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (90123456789, 'Sofia Lima Pereira', TO_DATE('2005-12-01', 'YYYY-MM-DD'), 'MULHER CIS', 'slp@ufpe.br', 'slp', 'So!P0112');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (10123456789, 'Roberto Alves Neto', TO_DATE('1969-06-18', 'YYYY-MM-DD'), 'HOMEM CIS', 'ran@ufpe.br', 'ran', 'Rb@N1806');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (11234567890, 'Camila Ribeiro Santos', TO_DATE('1990-02-14', 'YYYY-MM-DD'), 'MULHER CIS', 'crs@ufpe.br', 'crs', 'Cm@S1402');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (12234567890, 'Paulo Henrique Duarte', TO_DATE('1982-08-25', 'YYYY-MM-DD'), 'HOMEM CIS', 'phd@ufpe.br', 'phd', 'Ph%D2508');
-INSERT INTO Pessoa (cpf, nome_completo, data_nasc, identidade_genero, email, usuario, senha)
-VALUES (13234567890, 'Tereza Cristina Lopes', TO_DATE('1972-03-11', 'YYYY-MM-DD'), 'MULHER CIS', 'tcl@ufpe.br', 'tcl', 'Tc!L1103');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('09879730968', '1');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('75364556824', '8');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('47294055793', '15');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('16897684600', '22');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('20819672785', '29');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('04864887640', '6');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('97875347718', '13');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('71784726770', '20');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('62701079896', '27');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('84520599733', '4');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('04162294844', '11');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('16105500807', '18');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('77992298373', '25');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('18603208050', '2');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('83822264695', '9');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('04776472511', '16');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('41330175603', '23');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('89831948980', '30');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('09879730968', '7');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('75364556824', '14');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('47294055793', '21');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('16897684600', '28');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('20819672785', '5');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('04864887640', '12');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('97875347718', '19');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('71784726770', '26');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('62701079896', '3');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('84520599733', '10');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('04162294844', '17');
+INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES ('16105500807', '24');
 
-/* Telefones */
-INSERT INTO Telefone_pessoa (cpf, telefone) VALUES (12345678901, 5581988880001);
-INSERT INTO Telefone_pessoa (cpf, telefone) VALUES (12345678901, 5581988880002);
-INSERT INTO Telefone_pessoa (cpf, telefone) VALUES (12345678901, 558133330001);
-INSERT INTO Telefone_pessoa (cpf, telefone) VALUES (23456789012, 5581977770001);
-INSERT INTO Telefone_pessoa (cpf, telefone) VALUES (34567890123, 5581966660001);
-INSERT INTO Telefone_pessoa (cpf, telefone) VALUES (10123456789, 5581955550001);
-INSERT INTO Telefone_pessoa (cpf, telefone) VALUES (10123456789, 5581955550002);
-INSERT INTO Telefone_pessoa (cpf, telefone) VALUES (13234567890, 558132720001);
-
-
-/* CASOS: Funções */
-INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES (10123456789, 90000003, 'ASSOCIADO');
-INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES (11234567890, 90000004, 'ASSISTENTE');
-INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES (12234567890, 90000005, 'AUXILIAR');
-INSERT INTO Professor (cpf_pessoa, num_matricula_func, titulacao) VALUES (89012345678, 90000006, 'SUBSTITUTO');
-
-INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES (45678901234, 20241000002);
-INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES (56789012345, 20231000003);
-INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES (67890123456, 20251000004);
-INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES (78901234567, 20211000005);
-INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES (90123456789, 20241000006);
-INSERT INTO Aluno (cpf_pessoa, num_matricula) VALUES (89012345678, 20261000007);
-
-
-/* CASOS: Lotação */
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (23456789012, 'CIN', TO_DATE('2010-03-01', 'YYYY-MM-DD'), 'DEDICACAO EXCLUSIVA', NULL);
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (34567890123, 'DMAT', TO_DATE('1999-02-01', 'YYYY-MM-DD'), '40H', TO_DATE('2005-08-14', 'YYYY-MM-DD'));
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (34567890123, 'CIN', TO_DATE('2005-08-15', 'YYYY-MM-DD'), 'DEDICACAO EXCLUSIVA', NULL);
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (10123456789, 'DMAT', TO_DATE('2001-06-01', 'YYYY-MM-DD'), '40H', NULL);
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (10123456789, 'CIN', TO_DATE('2015-01-10', 'YYYY-MM-DD'), '20H', NULL);
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (11234567890, 'DMAT', TO_DATE('2018-09-03', 'YYYY-MM-DD'), 'DEDICACAO EXCLUSIVA', NULL);
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (12234567890, 'DF', TO_DATE('2020-02-17', 'YYYY-MM-DD'), '20H', TO_DATE('2023-02-16', 'YYYY-MM-DD'));
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (12234567890, 'DF', TO_DATE('2024-03-01', 'YYYY-MM-DD'), '40H', NULL);
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (12234567890, 'DLET', TO_DATE('2019-05-10', 'YYYY-MM-DD'), '20H', TO_DATE('2019-05-10', 'YYYY-MM-DD'));
-INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento)
-VALUES (89012345678, 'DEINFO', TO_DATE('2024-08-01', 'YYYY-MM-DD'), '40H', TO_DATE('2026-07-31', 'YYYY-MM-DD'));
-
-
-/* CASOS: Curso */
-INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento)
-VALUES (seq_curso.NEXTVAL, 'ENGENHARIA DA COMPUTAÇÃO', 3600, 'PRESENCIAL', 'INTEGRAL', 60, 'BACHARELADO', 23456789012, 'CIN');
-INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento)
-VALUES (seq_curso.NEXTVAL, 'MATEMÁTICA - LICENCIATURA', 2800, 'PRESENCIAL', 'NOTURNO', 50, 'LICENCIATURA', 11234567890, 'DMAT');
-INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento)
-VALUES (seq_curso.NEXTVAL, 'FÍSICA - LICENCIATURA (EAD)', 2900, 'REMOTO', 'VESPERTINO', 120, 'LICENCIATURA', NULL, 'DF');
-INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento)
-VALUES (seq_curso.NEXTVAL, 'CIÊNCIA DE DADOS', 3000, 'HIBRIDO', 'MATUTINO', 40, 'BACHARELADO', 23456789012, 'DEINFO');
-INSERT INTO Curso (codigo_id, nome, ch_total, modalidade, turno, num_vagas, grau_academico, cpf_coordenador, sigla_departamento)
-VALUES (seq_curso.NEXTVAL, 'LETRAS - LÍNGUA PORTUGUESA', 2800, 'PRESENCIAL', 'MATUTINO', 0, 'LICENCIATURA', NULL, 'DLET');
-
-
-/* CASOS: Disciplina */
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('CIN002', 'Estruturas de Dados', 'Listas, pilhas, filas, tabelas hash, árvores e grafos. Análise de complexidade.', 60, 30, 6);
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('CIN003', 'Introdução à Programação', 'Variáveis, estruturas de controle, funções e vetores.', 30, 60, 6);
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('MAT001', 'Cálculo 1', 'Limites, derivadas, integrais e aplicações.', 60, 0, 4);
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('MAT002', 'Álgebra Vetorial e Linear para Computação', 'Geometria analítica, matrizes, sistemas lineares e espaços vetoriais.', 60, 0, 4);
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('CIN004', 'Projeto de Software', 'Desenvolvimento em equipe de um sistema completo, com entregas incrementais.', 0, 60, 4);
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('CIN005', 'Algoritmos Avançados', 'Programação dinâmica, grafos, algoritmos gulosos e NP-completude.', 45, 15, 4);
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('FIS001', 'Fundamentos de Física', 'Mecânica clássica, ondas e termodinâmica (inclui o problema d''água em ebulição).', 45, 0, 3);
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('LET001', 'Leitura e Produção de Textos', 'Gêneros textuais acadêmicos, resumo, resenha e artigo.', 30, 0, 2);
-INSERT INTO Disciplina (codigo, nome, ementa, ch_teorica, ch_pratica, num_creditos)
-VALUES ('CIN006', 'Tópicos Especiais em Banco de Dados', 'Bancos NoSQL, processamento de transações e otimização de consultas.', 30, 30, 4);
-
-
-/* CASOS: - Bibliografia */
-INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia)
-VALUES ('CIN001', 'ELMASRI, R.; NAVATHE, S. Sistemas de Banco de Dados. 7. ed. Pearson, 2018.');
-INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia)
-VALUES ('CIN001', 'SILBERSCHATZ, A.; KORTH, H.; SUDARSHAN, S. Sistema de Banco de Dados. 6. ed. Elsevier, 2012.');
-INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia)
-VALUES ('CIN001', 'DATE, C. J. Introdução a Sistemas de Bancos de Dados. 8. ed. Campus, 2004.');
-INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia)
-VALUES ('CIN002', 'CORMEN, T. H. et al. Algoritmos: Teoria e Prática. 3. ed. Elsevier, 2012.');
-INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia)
-VALUES ('CIN002', 'STROUSTRUP, B. The C++ Programming Language. 4. ed. Addison-Wesley, 2013.');
-INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia)
-VALUES ('CIN005', 'CORMEN, T. H. et al. Algoritmos: Teoria e Prática. 3. ed. Elsevier, 2012.');
-INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia)
-VALUES ('MAT001', 'STEWART, J. Cálculo. v. 1. 7. ed. Cengage, 2013.');
-
-
-/* CASOS: Pré-requisito */
 INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN002', 'CIN003');
 INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN001', 'CIN002');
 INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN006', 'CIN001');
 INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN004', 'CIN001');
 INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN005', 'CIN002');
 INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN005', 'MAT001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN007', 'CIN003');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN007', 'CIN008');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN008', 'CIN002');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN009', 'CIN003');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN009', 'CIN001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN010', 'CIN005');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN010', 'MAT005');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN010', 'CIN002');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('MAT003', 'MAT001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('MAT004', 'MAT001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('MAT005', 'MAT003');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('MAT005', 'MAT004');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('FIS001', 'MAT001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('FIS002', 'FIS001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('QUI002', 'QUI001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('LET002', 'LET001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('ECO001', 'MAT001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('BIO001', 'QUI001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('ENG001', 'FIS001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN004', 'CIN002');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('CIN006', 'CIN002');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('ADM001', 'ECO001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('PSI001', 'FIL001');
+INSERT INTO Pre_requisito (codigo_disciplina, codigo_requisito) VALUES ('DIR001', 'HIS001');
 
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('35577879400', '1');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('86021458451', '2');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('66882811202', '3');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('02448452636', '4');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('82802582216', '5');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('54382993237', '6');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('94157718879', '7');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('17443256850', '8');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('07355696300', '9');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('51547428422', '10');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('97660856502', '11');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('50620484276', '12');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('75003145071', '13');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('35577879400', '14');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('86021458451', '15');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('66882811202', '16');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('02448452636', '17');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('82802582216', '18');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('54382993237', '19');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('94157718879', '20');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('17443256850', '21');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('07355696300', '22');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('51547428422', '23');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('97660856502', '24');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('50620484276', '25');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('75003145071', '26');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('08012537303', '1');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('98210460293', '2');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('59747540770', '3');
+INSERT INTO Ministra (cpf_professor, cod_turma) VALUES ('54864390673', '4');
 
-/* CASOS: Grade curricular */
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN003', 1, 'OBRIGATORIA', 1);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT001', 1, 'OBRIGATORIA', 1);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN002', 1, 'OBRIGATORIA', 2);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT002', 1, 'OBRIGATORIA', 2);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN001', 1, 'OBRIGATORIA', 3);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN005', 1, 'OBRIGATORIA', 4);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN006', 1, 'ELETIVA DE PERFIL', 6);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN004', 1, 'OBRIGATORIA', 8);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('FIS001', 1, 'ELETIVA LIVRE', NULL);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('LET001', 1, 'ELETIVA LIVRE', NULL);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN003', '1', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT001', '1', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN002', '1', 'OBRIGATÓRIA', 2);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT002', '1', 'OBRIGATÓRIA', 2);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN001', '1', 'OBRIGATÓRIA', 3);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN005', '1', 'OBRIGATÓRIA', 4);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN006', '1', 'ELETIVA DE PERFIL', 6);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN004', '1', 'OBRIGATÓRIA', 8);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('FIS001', '1', 'ELETIVA LIVRE', NULL);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('LET001', '1', 'ELETIVA LIVRE', NULL);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN003', '2', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT001', '2', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('FIS001', '2', 'OBRIGATÓRIA', 2);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN006', '2', 'ELETIVA LIVRE', NULL);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN003', '3', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN001', '3', 'OBRIGATÓRIA', 3);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN007', '3', 'ELETIVA DE PERFIL', 5);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN001', '4', 'OBRIGATÓRIA', 3);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN006', '4', 'OBRIGATÓRIA', 5);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT001', '5', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT002', '5', 'OBRIGATÓRIA', 2);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('LET001', '5', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN003', '5', 'ELETIVA DE PERFIL', 5);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT003', '5', 'OBRIGATÓRIA', 2);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT004', '5', 'OBRIGATÓRIA', 3);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT001', '6', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT003', '6', 'OBRIGATÓRIA', 2);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT005', '6', 'OBRIGATÓRIA', 4);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('FIS001', '8', 'OBRIGATÓRIA', 1);
+INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('FIS002', '8', 'OBRIGATÓRIA', 2);
 
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN003', 2, 'OBRIGATORIA', 1);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT001', 2, 'OBRIGATORIA', 1);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('FIS001', 2, 'OBRIGATORIA', 2);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN006', 2, 'ELETIVA LIVRE', NULL);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('1', '09879730968', 1, 8.50);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('1', '16897684600', 1, 7.25);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('1', '97875347718', 1, 10.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('1', '84520599733', 1, 6.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('2', '77992298373', 1, 9.50);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('2', '04776472511', 1, 4.75);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('2', '21416210547', 1, 0.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('2', '75364556824', 1, 5.50);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('3', '20819672785', 1, 8.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('3', '71784726770', 1, 3.25);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('3', '04162294844', 1, 9.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('3', '18603208050', 1, 6.75);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('4', '41330175603', 1, NULL);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('4', '91452441030', 1, 7.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('4', '47294055793', 1, 2.50);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('4', '04864887640', 1, 8.25);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('5', '62701079896', 1, 10.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('5', '16105500807', 1, 5.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('5', '83822264695', 1, 9.75);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('6', '89831948980', 1, 6.50);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('1', '09879730968', 2, NULL);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('1', '16897684600', 2, 9.50);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('1', '97875347718', 2, 5.50);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('1', '84520599733', 2, 9.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('2', '77992298373', 2, NULL);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('2', '04776472511', 2, 10.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('2', '21416210547', 2, 6.50);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('2', '75364556824', 2, 10.00);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('3', '20819672785', 2, NULL);
+INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES ('3', '71784726770', 2, 8.00);
 
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT001', 3, 'OBRIGATORIA', 1);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('MAT002', 3, 'OBRIGATORIA', 2);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('LET001', 3, 'OBRIGATORIA', 1);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN003', 3, 'ELETIVA DE PERFIL', 5);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('09879730968', '1', TO_DATE('2019-03-04', 'YYYY-MM-DD'), 'TRANSFERIDO', 6.10, 'SISU', TO_DATE('2020-01-04', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('09879730968', '2', TO_DATE('2020-01-09', 'YYYY-MM-DD'), 'ATIVO', 7.30, 'TRANSFERÊNCIA INTERNA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('75364556824', '8', TO_DATE('2022-08-04', 'YYYY-MM-DD'), 'CONCLUÍDO', 8.90, 'SISU', TO_DATE('2026-08-04', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('75364556824', '9', TO_DATE('2026-09-03', 'YYYY-MM-DD'), 'ATIVO', NULL, 'PORTADOR DE DIPLOMA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('47294055793', '15', TO_DATE('2025-03-04', 'YYYY-MM-DD'), 'CANCELADO', NULL, 'SISU', TO_DATE('2025-03-04', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('47294055793', '15', TO_DATE('2025-09-04', 'YYYY-MM-DD'), 'ATIVO', NULL, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('16897684600', '22', TO_DATE('2020-08-04', 'YYYY-MM-DD'), 'CANCELADO', 3.00, 'SISU', TO_DATE('2021-10-04', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('16897684600', '23', TO_DATE('2022-04-02', 'YYYY-MM-DD'), 'ATIVO', 6.80, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('20819672785', '29', TO_DATE('2023-03-04', 'YYYY-MM-DD'), 'CANCELADO', 4.40, 'SISU', TO_DATE('2023-11-04', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('20819672785', '29', TO_DATE('2024-03-04', 'YYYY-MM-DD'), 'TRANCADO', 5.20, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('04864887640', '6', TO_DATE('2018-08-04', 'YYYY-MM-DD'), 'CONCLUÍDO', 8.00, 'SISU', TO_DATE('2023-02-04', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('04864887640', '7', TO_DATE('2023-04-05', 'YYYY-MM-DD'), 'ATIVO', 9.20, 'PORTADOR DE DIPLOMA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('97875347718', '13', TO_DATE('2021-03-04', 'YYYY-MM-DD'), 'ATIVO', 7.31, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('71784726770', '20', TO_DATE('2024-08-04', 'YYYY-MM-DD'), 'ATIVO', 9.65, 'TRANSFERÊNCIA INTERNA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('62701079896', '27', TO_DATE('2025-03-04', 'YYYY-MM-DD'), 'TRANCADO', 5.16, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('84520599733', '4', TO_DATE('2026-08-04', 'YYYY-MM-DD'), 'CANCELADO', NULL, 'SISU', TO_DATE('2026-09-06', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('04162294844', '11', TO_DATE('2022-03-04', 'YYYY-MM-DD'), 'ATIVO', 6.49, 'TRANSFERÊNCIA EXTERNA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('16105500807', '18', TO_DATE('2023-08-04', 'YYYY-MM-DD'), 'CANCELADO', 5.67, 'PORTADOR DE DIPLOMA', TO_DATE('2024-08-04', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('77992298373', '25', TO_DATE('2024-03-04', 'YYYY-MM-DD'), 'ATIVO', 4.91, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('18603208050', '2', TO_DATE('2019-08-04', 'YYYY-MM-DD'), 'ATIVO', 5.42, 'TRANSFERÊNCIA INTERNA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('83822264695', '9', TO_DATE('2025-03-04', 'YYYY-MM-DD'), 'TRANCADO', 6.69, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('04776472511', '16', TO_DATE('2026-08-04', 'YYYY-MM-DD'), 'CANCELADO', NULL, 'SISU', TO_DATE('2026-09-06', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('41330175603', '23', TO_DATE('2021-03-04', 'YYYY-MM-DD'), 'ATIVO', 5.10, 'TRANSFERÊNCIA EXTERNA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('89831948980', '30', TO_DATE('2022-08-04', 'YYYY-MM-DD'), 'CANCELADO', 5.07, 'PORTADOR DE DIPLOMA', TO_DATE('2023-08-04', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('21416210547', '7', TO_DATE('2023-03-04', 'YYYY-MM-DD'), 'ATIVO', 9.85, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('91452441030', '14', TO_DATE('2024-08-04', 'YYYY-MM-DD'), 'ATIVO', 6.66, 'TRANSFERÊNCIA INTERNA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('04118955750', '21', TO_DATE('2025-03-04', 'YYYY-MM-DD'), 'TRANCADO', 4.53, 'SISU', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('61584645032', '28', TO_DATE('2026-08-04', 'YYYY-MM-DD'), 'CANCELADO', NULL, 'SISU', TO_DATE('2026-09-06', 'YYYY-MM-DD'));
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('14659085368', '5', TO_DATE('2020-03-04', 'YYYY-MM-DD'), 'ATIVO', 5.56, 'TRANSFERÊNCIA EXTERNA', NULL);
+INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, estado, coeficiente_rendimento, forma_ingresso, data_saida) VALUES ('02859406948', '12', TO_DATE('2024-08-04', 'YYYY-MM-DD'), 'CANCELADO', 5.92, 'PORTADOR DE DIPLOMA', TO_DATE('2025-08-04', 'YYYY-MM-DD'));
 
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('FIS001', 4, 'OBRIGATORIA', 1);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('35577879400', 'CIN', TO_DATE('2005-01-01', 'YYYY-MM-DD'), 'DEDICAÇÃO EXCLUSIVA', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('86021458451', 'DF', TO_DATE('2010-08-04', 'YYYY-MM-DD'), '40H', TO_DATE('2013-08-04', 'YYYY-MM-DD'));
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('66882811202', 'DHIS', TO_DATE('2015-03-07', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('02448452636', 'DPSI', TO_DATE('2020-10-10', 'YYYY-MM-DD'), 'DEDICAÇÃO EXCLUSIVA', TO_DATE('2023-10-10', 'YYYY-MM-DD'));
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('82802582216', 'DCON', TO_DATE('2005-05-13', 'YYYY-MM-DD'), '40H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('54382993237', 'DENF', TO_DATE('2010-12-16', 'YYYY-MM-DD'), '20H', TO_DATE('2013-12-16', 'YYYY-MM-DD'));
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('94157718879', 'DBOT', TO_DATE('2015-07-19', 'YYYY-MM-DD'), 'DEDICAÇÃO EXCLUSIVA', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('17443256850', 'DENGE', TO_DATE('2020-02-22', 'YYYY-MM-DD'), '40H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('07355696300', 'DARQ', TO_DATE('2005-09-25', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('51547428422', 'DEDU', TO_DATE('2010-04-28', 'YYYY-MM-DD'), 'DEDICAÇÃO EXCLUSIVA', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('97660856502', 'CIN', TO_DATE('2015-11-03', 'YYYY-MM-DD'), '40H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('50620484276', 'DF', TO_DATE('2020-06-06', 'YYYY-MM-DD'), '20H', TO_DATE('2023-06-06', 'YYYY-MM-DD'));
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('75003145071', 'DHIS', TO_DATE('2005-01-09', 'YYYY-MM-DD'), 'DEDICAÇÃO EXCLUSIVA', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('08012537303', 'DPSI', TO_DATE('2010-08-12', 'YYYY-MM-DD'), '40H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('98210460293', 'DCON', TO_DATE('2015-03-15', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('59747540770', 'DENF', TO_DATE('2020-10-18', 'YYYY-MM-DD'), 'DEDICAÇÃO EXCLUSIVA', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('54864390673', 'DBOT', TO_DATE('2005-05-21', 'YYYY-MM-DD'), '40H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('47918895762', 'DENGE', TO_DATE('2010-12-24', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('04886193005', 'DARQ', TO_DATE('2015-07-27', 'YYYY-MM-DD'), 'DEDICAÇÃO EXCLUSIVA', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('83472855606', 'DEDU', TO_DATE('2020-02-02', 'YYYY-MM-DD'), '40H', TO_DATE('2023-02-02', 'YYYY-MM-DD'));
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('22290044253', 'CIN', TO_DATE('2005-09-05', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('22022697898', 'DF', TO_DATE('2010-04-08', 'YYYY-MM-DD'), 'DEDICAÇÃO EXCLUSIVA', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('76252807052', 'DHIS', TO_DATE('2015-11-11', 'YYYY-MM-DD'), '40H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('02831663202', 'DPSI', TO_DATE('2020-06-14', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('35577879400', 'DMAT', TO_DATE('2007-01-01', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('86021458451', 'DF', TO_DATE('2013-09-03', 'YYYY-MM-DD'), '40H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('66882811202', 'DGEO', TO_DATE('2017-03-07', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('02448452636', 'DPSI', TO_DATE('2023-11-09', 'YYYY-MM-DD'), '40H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('82802582216', 'DDIR', TO_DATE('2007-05-13', 'YYYY-MM-DD'), '20H', NULL);
+INSERT INTO Lotacao (cpf_professor, sigla_dept, data_admissao, regime_trabalho, data_encerramento) VALUES ('54382993237', 'DENF', TO_DATE('2014-01-15', 'YYYY-MM-DD'), '40H', NULL);
 
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN001', 5, 'OBRIGATORIA', 3);
-INSERT INTO Compoe_a_grade_curricular_de (codigo_disciplina, codigo_id, tipo, periodo_sugerido) VALUES ('CIN006', 5, 'OBRIGATORIA', 5);
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('09879730968', '5581932682421');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('09879730968', '558134200841');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('75364556824', '5581945754149');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('75364556824', '558135825916');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('47294055793', '5581960229449');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('47294055793', '558132354637');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('16897684600', '5581944272500');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('16897684600', '558132703094');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('20819672785', '5581914878080');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('20819672785', '558132916674');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('04864887640', '5581994675808');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('04864887640', '558135368335');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('97875347718', '5581985476198');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('97875347718', '558132485236');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('71784726770', '5581970048482');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('71784726770', '558134305606');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('62701079896', '5581999525199');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('62701079896', '558132149206');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('84520599733', '5581957737074');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('84520599733', '558135702216');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('04162294844', '5581972676586');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('16105500807', '5581979187742');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('77992298373', '5581994621612');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('18603208050', '5581914652402');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('83822264695', '5581935501820');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('04776472511', '5581997299598');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('41330175603', '5581997403192');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('89831948980', '5581974620534');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('21416210547', '5581916310160');
+INSERT INTO Telefone_pessoa (cpf, telefone) VALUES ('91452441030', '5581949099626');
 
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN001', 'ELMASRI, R.; NAVATHE, S. Sistemas de Banco de Dados. 7. ed. São Paulo: Pearson, 2018.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN001', 'SILBERSCHATZ, A.; KORTH, H. F.; SUDARSHAN, S. Sistema de Banco de Dados. 6. ed. Rio de Janeiro: Elsevier, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN001', 'DATE, C. J. Introdução a Sistemas de Bancos de Dados. 8. ed. Rio de Janeiro: Campus, 2004.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN002', 'CORMEN, T. H. et al. Algoritmos: Teoria e Prática. 3. ed. Rio de Janeiro: Elsevier, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN002', 'STROUSTRUP, B. The C++ Programming Language. 4. ed. Boston: Addison-Wesley, 2013.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN003', 'CORMEN, T. H. et al. Algoritmos: Teoria e Prática. 3. ed. Rio de Janeiro: Elsevier, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN005', 'CORMEN, T. H. et al. Algoritmos: Teoria e Prática. 3. ed. Rio de Janeiro: Elsevier, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN006', 'ELMASRI, R.; NAVATHE, S. Sistemas de Banco de Dados. 7. ed. São Paulo: Pearson, 2018.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN006', 'SILBERSCHATZ, A.; KORTH, H. F.; SUDARSHAN, S. Sistema de Banco de Dados. 6. ed. Rio de Janeiro: Elsevier, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN007', 'TANENBAUM, A. S.; WETHERALL, D. Redes de Computadores. 5. ed. São Paulo: Pearson, 2011.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN008', 'TANENBAUM, A. S.; BOS, H. Sistemas Operacionais Modernos. 4. ed. São Paulo: Pearson, 2015.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN009', 'SOMMERVILLE, I. Engenharia de Software. 10. ed. São Paulo: Pearson, 2018.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('CIN010', 'RUSSELL, S.; NORVIG, P. Inteligência Artificial. 3. ed. Rio de Janeiro: Elsevier, 2013.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('MAT001', 'STEWART, J. Cálculo. v. 1. 7. ed. São Paulo: Cengage Learning, 2013.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('MAT003', 'STEWART, J. Cálculo. v. 2. 7. ed. São Paulo: Cengage Learning, 2013.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('MAT002', 'BOLDRINI, J. L. et al. Álgebra Linear. 3. ed. São Paulo: Harbra, 1986.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('MAT004', 'LIPSCHUTZ, S.; LIPSON, M. Matemática Discreta. 3. ed. Porto Alegre: Bookman, 2013.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('MAT005', 'MORETTIN, P. A.; BUSSAB, W. O. Estatística Básica. 9. ed. São Paulo: Saraiva, 2017.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('FIS001', 'HALLIDAY, D.; RESNICK, R.; WALKER, J. Fundamentos de Física. v. 1. 10. ed. Rio de Janeiro: LTC, 2016.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('QUI001', 'ATKINS, P.; JONES, L. Princípios de Química. 5. ed. Porto Alegre: Bookman, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('QUI002', 'SOLOMONS, T. W. G.; FRYHLE, C. B. Química Orgânica. v. 1. 10. ed. Rio de Janeiro: LTC, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('LET001', 'KOCH, I. V.; ELIAS, V. M. Ler e Escrever: estratégias de produção textual. 2. ed. São Paulo: Contexto, 2009.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('HIS001', 'FAUSTO, B. História do Brasil. 14. ed. São Paulo: EDUSP, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('FIL001', 'CHAUÍ, M. Convite à Filosofia. 14. ed. São Paulo: Ática, 2011.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('ECO001', 'MANKIW, N. G. Introdução à Economia. 6. ed. São Paulo: Cengage Learning, 2013.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('ADM001', 'CHIAVENATO, I. Introdução à Teoria Geral da Administração. 9. ed. Barueri: Manole, 2014.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('BIO001', 'JUNQUEIRA, L. C.; CARNEIRO, J. Biologia Celular e Molecular. 9. ed. Rio de Janeiro: Guanabara Koogan, 2012.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('MUS001', 'MED, B. Teoria da Música. 4. ed. Brasília: MusiMed, 1996.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('FIS002', 'HALLIDAY, D.; RESNICK, R.; WALKER, J. Fundamentos de Física. v. 1. 10. ed. Rio de Janeiro: LTC, 2016.');
+INSERT INTO Bibliografia_disciplina (codigo_disciplina, referencia) VALUES ('LET002', 'KOCH, I. V.; ELIAS, V. M. Ler e Escrever: estratégias de produção textual. 2. ed. São Paulo: Contexto, 2009.');
 
-/* CASOS: Turma */
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'VESPERTINO', 60, 'CIN002');  -- 2
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'NOTURNO', 40, 'MAT001');     -- 3
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'MATUTINO', 45, 'MAT002');    -- 4
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.1', 'MATUTINO', 50, 'CIN001');    -- 5
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.1', 'VESPERTINO', 40, 'CIN003');  -- 6
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2025.2', 'INTEGRAL', 30, 'CIN004');    -- 7
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'NOTURNO', 0, 'CIN005');      -- 8
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'VESPERTINO', 25, 'FIS001');  -- 9
-INSERT INTO Turma (cod_turma, periodo, turno, num_vagas, codigo_disciplina) VALUES (seq_turma.NEXTVAL, '2026.2', 'VESPERTINO', 20, 'CIN006');  -- 10
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('1', '35M34');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('2', '246M1234');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('3', '36N2');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('4', '6T12');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('5', '7T34');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('6', '24M1234');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('7', '35M56');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('8', '246N12');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('9', '36N34');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('10', '6T56');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('11', '7M56');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('12', '24M12');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('13', '35M34');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('14', '246N1');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('15', '36T123');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('16', '6M12');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('17', '7M34');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('18', '24M1234');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('19', '35N2');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('20', '246T12');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('21', '36T34');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('22', '6M1234');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('23', '7M56');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('24', '24N12');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('1', '6M12');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('2', '7T34');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('3', '24N1');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('4', '35T123');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('5', '246T12');
+INSERT INTO Horario_turma (cod_turma, horario) VALUES ('6', '36M34');
 
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (1, '24M12');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (1, '6M34');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (2, '35T23');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (3, '246N12');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (4, '35M12');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (5, '24M12');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (6, '24T34');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (7, '2345M12');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (7, '2345T12');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (8, '35N34');
-INSERT INTO Horario_turma (cod_turma, horario) VALUES (9, '7M1234');
-
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (23456789012, 1);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (34567890123, 1);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (23456789012, 2);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (11234567890, 3);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (11234567890, 4);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (10123456789, 5);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (34567890123, 6);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (89012345678, 7);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (10123456789, 8);
-INSERT INTO Ministra (cpf_professor, cod_turma) VALUES (12234567890, 9);
-
-
-/* CASOS: Sala */
-INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 40, 'CENTRO DE INFORMÁTICA', 'A', 0);   -- 2
-INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 120, 'CENTRO DE INFORMÁTICA', 'B', 1);  -- 3
-INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 30, 'CCEN', 'C', 3);                    -- 4
-INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 80, 'CCEN', 'D1', 1);                   -- 5
-INSERT INTO Sala (cod_sala, capacidade, predio, bloco, andar) VALUES (seq_sala.NEXTVAL, 0, 'CAC', 'E', 0);                      -- 6
-
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (23456789012, 1, 1);
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (23456789012, 3, 1);
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (34567890123, 1, 6);
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (23456789012, 2, 2);
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (11234567890, 4, 3);
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (11234567890, 4, 4);
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (13234567890, 3, 8);
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (45678901234, 5, 5);
-INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES (12234567890, 5, 9);
-
-
-/* CASOS: MatrÍcula e Monitora */
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (12345678901, 1, 95, 'ATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (12345678901, 3, 100, 'ATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (12345678901, 4, 88, 'ATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (12345678901, 6, 92, 'INATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (45678901234, 1, 0, 'INATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (45678901234, 2, 80, 'ATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (56789012345, 1, 100, 'ATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (56789012345, 5, 60, 'INATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (67890123456, 2, 75, 'ATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (67890123456, 9, 70, 'ATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (78901234567, 7, 100, 'INATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (90123456789, 3, 50, 'INATIVO');
-INSERT INTO Matricula (cpf_aluno, cod_turma, frequencia, situacao) VALUES (89012345678, 10, 90, 'ATIVO');
-
-INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES (78901234567, 1);
-INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES (78901234567, 5);
-INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES (45678901234, 5);
-INSERT INTO Monitora (cpf_aluno, cod_turma) VALUES (67890123456, 3);
-
-
-/* CASOS: Avaliacao */
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (1, 1, 'PROVA', 30, TO_DATE('2026-09-15', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (1, 2, 'PROJETO', 40, TO_DATE('2026-10-30', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (1, 3, 'PROVA', 30, TO_DATE('2026-12-01', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (2, 1, 'LISTA', 0, TO_DATE('2026-09-01', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (3, 1, 'PROVA', 50, TO_DATE('2026-09-22', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (3, 2, 'PROVA', 50, TO_DATE('2026-11-10', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (4, 1, 'MINI-PROVA', 20, TO_DATE('2026-09-10', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (4, 2, 'MINI-PROVA', 20, TO_DATE('2026-10-01', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (4, 3, 'PROVA', 60, TO_DATE('2026-11-20', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (5, 1, 'PROVA', 50, TO_DATE('2026-04-20', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (5, 2, 'PROVA', 50, TO_DATE('2026-06-15', 'YYYY-MM-DD'));
-INSERT INTO Avaliacao (cod_turma, num_avaliacao, tipo, peso, data) VALUES (6, 1, 'PROJETO', 100, TO_DATE('2026-06-30', 'YYYY-MM-DD'));
-
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (1, 12345678901, 1, 8.50);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (1, 45678901234, 1, 0.00);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (1, 56789012345, 1, 10.00);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (2, 45678901234, 1, 10.00);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (2, 67890123456, 1, 8.00);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (3, 12345678901, 1, 7.25);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (3, 90123456789, 1, 3.00);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (4, 12345678901, 1, 9.00);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (4, 12345678901, 2, 6.50);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (5, 56789012345, 1, 4.00);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (5, 56789012345, 2, NULL);
-INSERT INTO Desempenho_em (cod_turma, cpf_aluno, num_avaliacao, nota) VALUES (6, 12345678901, 1, 10.00);
-
-
-/* CAOS: Vincula-se a */
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (12345678901, 1, TO_DATE('2025-08-04', 'YYYY-MM-DD'), 'ATIVO', 8.75, 'SISU', NULL);
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (45678901234, 2, TO_DATE('2024-03-04', 'YYYY-MM-DD'), 'TRANSFERIDO', 6.10, 'SISU', TO_DATE('2025-02-28', 'YYYY-MM-DD'));
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (45678901234, 1, TO_DATE('2025-03-03', 'YYYY-MM-DD'), 'ATIVO', 7.30, 'TRANSFERENCIA INTERNA', NULL);
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (56789012345, 3, TO_DATE('2018-03-05', 'YYYY-MM-DD'), 'CONCLUIDO', 8.00, 'SISU', TO_DATE('2022-12-16', 'YYYY-MM-DD'));
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (56789012345, 1, TO_DATE('2023-03-06', 'YYYY-MM-DD'), 'ATIVO', 9.20, 'PORTADOR DE DIPLOMA', NULL);
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (67890123456, 2, TO_DATE('2025-08-04', 'YYYY-MM-DD'), 'ATIVO', 7.80, 'TRANSFERENCIA EXTERNA', NULL);
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (78901234567, 1, TO_DATE('2021-03-01', 'YYYY-MM-DD'), 'CONCLUIDO', 8.90, 'SISU', TO_DATE('2025-12-19', 'YYYY-MM-DD'));
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (78901234567, 5, TO_DATE('2026-03-02', 'YYYY-MM-DD'), 'CANCELADO', NULL, 'PORTADOR DE DIPLOMA', TO_DATE('2026-03-02', 'YYYY-MM-DD'));
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (90123456789, 3, TO_DATE('2024-03-04', 'YYYY-MM-DD'), 'CANCELADO', 3.00, 'SISU', TO_DATE('2025-08-01', 'YYYY-MM-DD'));
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (90123456789, 3, TO_DATE('2026-03-02', 'YYYY-MM-DD'), 'TRANCADO', NULL, 'SISU', NULL);
-INSERT INTO Vincula_se_a (cpf_aluno, codigo_curso, data_ingresso, status, coeficiente_rendimento, forma_ingresso, data_saida)
-VALUES (89012345678, 5, TO_DATE('2026-08-03', 'YYYY-MM-DD'), 'ATIVO', NULL, 'PORTADOR DE DIPLOMA', NULL);
-
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('35577879400', '8', '1');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('86021458451', '15', '2');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('66882811202', '22', '3');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('02448452636', '5', '4');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('82802582216', '12', '5');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('54382993237', '19', '6');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('94157718879', '2', '7');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('17443256850', '9', '8');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('84520599733', '16', '9');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('92731979658', '23', '10');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('97660856502', '6', '11');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('50620484276', '13', '12');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('75003145071', '20', '13');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('35577879400', '3', '14');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('86021458451', '10', '15');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('66882811202', '17', '16');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('02448452636', '24', '17');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('09879730968', '7', '18');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('54382993237', '14', '19');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('08724385468', '21', '20');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('17443256850', '4', '21');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('07355696300', '11', '22');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('51547428422', '18', '23');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('97660856502', '1', '24');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('50620484276', '8', '25');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('75003145071', '15', '26');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('52473573611', '22', '27');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('92731979658', '5', '28');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('08724385468', '12', '29');
+INSERT INTO Reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('52473573611', '19', '30');
 COMMIT;

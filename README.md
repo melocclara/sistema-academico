@@ -33,8 +33,8 @@ O script de criação traduz cada relação do esquema normalizado em uma tabela
 /
 ├── README.md
 ├── sql/
-│   ├── 01_criacao.sql        # CREATE SEQUENCE, CREATE TABLE, CONSTRAINTs e CHECKs
-│   └── 02_povoamento.sql     # INSERT INTO de todas as tabelas
+│   ├── criacao.sql        # CREATE SEQUENCE, CREATE TABLE, CONSTRAINTs e CHECKs
+│   └── povoamento.sql     # INSERT INTO de todas as tabelas
 └── docs/
     └── (arquivos da AV2: minimundo, modelo ER e esquema relacional)
 ```
@@ -44,8 +44,8 @@ O script de criação traduz cada relação do esquema normalizado em uma tabela
 Os scripts foram escritos para Oracle SQL e podem ser executados no Oracle Live SQL (FreeSQL). A ordem importa, por causa das chaves estrangeiras: **primeiro a criação, depois o povoamento.**
 
 1. Abra [freesql.com](https://freesql.com/) e entre no Worksheet.
-2. Cole o conteúdo de `01_criacao.sql` e execute com **Run Script**.
-3. Limpe o editor, cole `02_povoamento.sql` e execute com **Run Script**.
+2. Cole o conteúdo de `criacao.sql` e execute com **Run Script**.
+3. Limpe o editor, cole `povoamento.sql` e execute com **Run Script**.
 
 Para conferir o resultado:
 

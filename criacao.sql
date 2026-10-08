@@ -27,7 +27,7 @@ CREATE TABLE telefone_pessoa
     telefone varchar2(11),
     CONSTRAINT telefone_pessoa_pk PRIMARY KEY (cpf_pessoa, telefone),
     CONSTRAINT telefone_pessoa_cpf_fk FOREIGN KEY (cpf_pessoa) REFERENCES pessoa(cpf),
-    CONSTRAINT departamento_telefone_ck CHECK (REGEXP_LIKE(telefone, '^[0-9]{10,11}$'))
+    CONSTRAINT telefone_pessoa_ck CHECK (REGEXP_LIKE(telefone, '^[0-9]{10,11}$'))
 );
 
 CREATE TABLE aluno
@@ -57,11 +57,10 @@ CREATE TABLE departamento
     nome varchar2(100) NOT NULL,
     localizacao varchar2(70),
     telefone varchar2(11) NOT NULL,
-    CONSTRAINT dep_g1_pk PRIMARY KEY (sigla),
-    CONSTRAINT dep_g1_nome_uk UNIQUE (nome),
-    CONSTRAINT dep_g1_tel_uk UNIQUE (telefone),
-    CONSTRAINT dep_g1_tel_ck
-        CHECK (REGEXP_LIKE(telefone, '^[0-9]{10,11}$'))
+    CONSTRAINT departamento_pk PRIMARY KEY (sigla),
+    CONSTRAINT departamento_nome_uk UNIQUE (nome),
+    CONSTRAINT departamento_telefone_uk UNIQUE (telefone),
+    CONSTRAINT departamento_telefone_ck CHECK (REGEXP_LIKE(telefone, '^[0-9]{10,11}$'))
 );
 
 CREATE SEQUENCE curso_seq INCREMENT BY 1 START WITH 1;
@@ -216,7 +215,8 @@ CREATE TABLE compoe_a_grade_curricular_de
     CONSTRAINT compoe_disciplina_fk FOREIGN KEY (codigo_disciplina) REFERENCES disciplina(codigo),
     CONSTRAINT compoe_curso_fk FOREIGN KEY (codigo_id) REFERENCES curso(codigo_id),
     CONSTRAINT compoe_tipo_ck CHECK (tipo IN ('Obrigatória', 'Eletiva')),
-    CONSTRAINT compoe_periodo_ck CHECK (periodo_sugerido IS NULL OR periodo_sugerido BETWEEN 1 AND 12),CONSTRAINT compoe_obrigatoria_ck CHECK (tipo = 'Eletiva' OR periodo_sugerido IS NOT NULL)
+    CONSTRAINT compoe_periodo_ck CHECK (periodo_sugerido IS NULL OR periodo_sugerido BETWEEN 1 AND 12),
+    CONSTRAINT compoe_obrigatoria_ck CHECK (tipo = 'Eletiva' OR periodo_sugerido IS NOT NULL)
 );
 
 CREATE TABLE desempenho_em

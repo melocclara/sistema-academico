@@ -175,7 +175,7 @@ CREATE TABLE matricula
     CONSTRAINT matricula_aluno_fk FOREIGN KEY (cpf_aluno) REFERENCES aluno(cpf_pessoa),
     CONSTRAINT matricula_turma_fk FOREIGN KEY (cod_turma) REFERENCES turma(cod_turma),
     CONSTRAINT matricula_frequencia_ck CHECK (frequencia BETWEEN 0 AND 100),
-    CONSTRAINT matricula_situacao_ck CHECK (situacao IN ('Aprovado', 'Reprovado', 'Trancado', 'Matriculado'))
+    CONSTRAINT matricula_situacao_ck CHECK (situacao IN ('Aprovado por nota', 'Reprovado', 'Reprovado por falta', 'Trancado', 'Matriculado', 'Cancelado'))
 );
 
 CREATE TABLE monitora
@@ -281,11 +281,11 @@ ON lotacao (
 
 CREATE TABLE reserva
 (
-    cpf_pessoa char(11),
+    cpf_professor char(11),
     cod_sala varchar2(10),
     cod_turma varchar2(10),
-    CONSTRAINT reserva_pk PRIMARY KEY (cpf_pessoa, cod_sala, cod_turma),
-    CONSTRAINT reserva_pessoa_fk FOREIGN KEY (cpf_pessoa) REFERENCES professor(cpf_pessoa),
+    CONSTRAINT reserva_pk PRIMARY KEY (cpf_professor, cod_sala, cod_turma),
+    CONSTRAINT reserva_pessoa_fk FOREIGN KEY (cpf_professor) REFERENCES professor(cpf_pessoa),
     CONSTRAINT reserva_sala_fk FOREIGN KEY (cod_sala) REFERENCES sala(cod_sala),
     CONSTRAINT reserva_turma_fk FOREIGN KEY (cod_turma) REFERENCES turma(cod_turma)
 );

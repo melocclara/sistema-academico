@@ -117,13 +117,22 @@ SELECT codigo,
        nome,
        num_creditos
 FROM disciplina
-ORDER BY num_creditos DESC, nome ASC, codigo ASC;
+ORDER BY num_creditos DESC,
+         nome ASC,
+         codigo ASC;
 
 -- conta quantos alunos estão matriculados em cada turma (agrupando pelo código da turma)
 SELECT cod_turma,
        COUNT(*) AS qtd_alunos
 FROM matricula
 GROUP BY cod_turma;
+
+-- filtra as turmas com média acima de 7 (agrupando pelo código da turma)
+SELECT cod_turma,
+       AVG(nota) AS media_turma
+FROM desempenho_em
+GROUP BY cod_turma
+HAVING AVG(nota) > 7;
 
 -- [CHECKLIST PL: 4. CREATE PROCEDURE, 8. IF ELSIF, 9. CASE WHEN, 16. USO DE PARÂMETROS]
 CREATE OR REPLACE PROCEDURE proc_exemplo (

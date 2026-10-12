@@ -788,29 +788,29 @@ INSERT INTO lotacao (cpf_professor, sigla_dept, data_admissao, data_encerramento
 -- ============================================================================
 -- 21. RESERVA (24 registros)
 -- ============================================================================
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('34528526603', 'CIN101', 'T25101');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('98726068036', 'CIN102', 'T25102');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('85564810945', 'LAB01', 'T25103');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('18189481096', 'LAB02', 'T25104');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('41274658241', 'EXA201', 'T25105');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('75382891788', 'EXA202', 'T25106');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('97600208318', 'FIS301', 'T26101');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('34528526603', 'QUI101', 'T26102');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('97341518359', 'ENG201', 'T26103');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('48082805234', 'ADM101', 'T26104');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('18189481096', 'DES101', 'T26105');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('41274658241', 'ECO201', 'T26106');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('70581419839', 'CIN101', 'T26107');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('90088300439', 'CIN102', 'T26108');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('97600208318', 'LAB01', 'T26201');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('97341518359', 'LAB02', 'T26202');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('34528526603', 'EXA201', 'T26203');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('97600208318', 'EXA202', 'T26204');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('98726068036', 'FIS301', 'T26205');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('48082805234', 'QUI101', 'T26206');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('75382891788', 'ENG201', 'T26207');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('85564810945', 'ADM101', 'T26208');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('70581419839', 'DES101', 'T26209');
-INSERT INTO reserva (cpf_pessoa, cod_sala, cod_turma) VALUES ('90088300439', 'ECO201', 'T26210');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('34528526603', 'CIN101', 'T25101');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('98726068036', 'CIN102', 'T25102');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('85564810945', 'LAB01', 'T25103');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('18189481096', 'LAB02', 'T25104');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('41274658241', 'EXA201', 'T25105');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('75382891788', 'EXA202', 'T25106');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('97600208318', 'FIS301', 'T26101');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('34528526603', 'QUI101', 'T26102');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('97341518359', 'ENG201', 'T26103');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('48082805234', 'ADM101', 'T26104');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('18189481096', 'DES101', 'T26105');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('41274658241', 'ECO201', 'T26106');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('70581419839', 'CIN101', 'T26107');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('90088300439', 'CIN102', 'T26108');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('97600208318', 'LAB01', 'T26201');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('97341518359', 'LAB02', 'T26202');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('34528526603', 'EXA201', 'T26203');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('97600208318', 'EXA202', 'T26204');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('98726068036', 'FIS301', 'T26205');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('48082805234', 'QUI101', 'T26206');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('75382891788', 'ENG201', 'T26207');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('85564810945', 'ADM101', 'T26208');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('70581419839', 'DES101', 'T26209');
+INSERT INTO reserva (cpf_professor, cod_sala, cod_turma) VALUES ('90088300439', 'ECO201', 'T26210');
 
 COMMIT;

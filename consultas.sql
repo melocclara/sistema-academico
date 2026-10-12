@@ -14,13 +14,11 @@ CREATE index conferir_vagas
 ON turma(num_vagas);
 --index feito para acessar o numero de vagas da turma de maneira mais facil
 
+-- [CHECKLIST SQL: 26. GRANT / REVOKE]
 -- GRANT: concede permissões a um usuário.
 -- exemplo: GRANT SELECT ON sala TO usuario_teste;
-
 -- REVOKE: retira permissões concedidas anteriormente.
 -- exemplo: REVOKE SELECT ON sala FROM usuario_teste;
-
---//n entendi muito bem oq é pra ser feito no grant/revoke ja que tem uma obs na av4 que diz que o oracle n é autorizado ent bastava entender a função//
 
 -- [CHECKLIST SQL: 3. INSERT INTO, 4. UPDATE, 5. DELETE]
 INSERT INTO sala
@@ -626,13 +624,12 @@ END;
 
 CREATE OR REPLACE PACKAGE pkg_gestao AS
 
-    -- regras de negocio do minimundo
-    c_media_aprovacao CONSTANT NUMBER := 7; -- media >= 7: aprovado
-    c_media_minima_final CONSTANT NUMBER := 3; -- entre 3 e 7: prova final
-    c_limite_frequencia CONSTANT NUMBER := 75; -- frequencia minima de aluno p ser aprovado 
+    -- regras de negócio do minimundo
+    c_media_aprovacao   CONSTANT NUMBER := 7;
+    c_limite_frequencia CONSTANT NUMBER := 75;
 
-    -- records
-    -- registro aluno
+    -- [CHECKLIST PL: 1. USO DE RECORD]
+    -- registro simples de aluno
     TYPE r_aluno IS RECORD (
         cpf aluno.cpf_pessoa%TYPE,
         nome pessoa.nome_completo%TYPE,
@@ -640,8 +637,8 @@ CREATE OR REPLACE PACKAGE pkg_gestao AS
         situacao matricula.situacao%TYPE
     );
     
-    -- registro linha do boletim
-    TYPE r_linha_boletim IS RECORD (
+    -- registro para linha de histórico/boletim
+    TYPE r_linha_historico IS RECORD (
         cod_turma turma.cod_turma%TYPE,
         disciplina disciplina.nome%TYPE,
         periodo turma.periodo%TYPE,
@@ -651,54 +648,172 @@ CREATE OR REPLACE PACKAGE pkg_gestao AS
         situacao matricula.situacao%TYPE
     );
 
-    -- resumo gerencial de uma turma
-    TYPE r_resumo_turma IS RECORD (
-        cod_turma turma.cod_turma%TYPE,
-        disciplina disciplina.nome%TYPE,
-        periodo turma.periodo%TYPE,
-        vagas turma.num_vagas%TYPE,
-        matriculados NUMBER,
-        ocupacao_pct NUMBER(5, 1),
-        media_turma NUMBER(4, 2),
-        aprovados NUMBER,
-        reprovados NUMBER,
-        trancados NUMBER
-    );
-
-    -- tables
+    -- [CHECKLIST PL: 2. ESTRUTURA DE DADOS DO TIPO TABLE]
     TYPE t_lista_alunos IS TABLE OF r_aluno INDEX BY BINARY_INTEGER;
-    TYPE t_boletim IS TABLE OF r_linha_boletim INDEX BY BINARY_INTEGER;
-    TYPE t_resumo_turmas IS TABLE OF r_resumo_turma INDEX BY BINARY_INTEGER;
+    TYPE t_historico IS TABLE OF r_linha_historico INDEX BY BINARY_INTEGER;
     TYPE t_codigos IS TABLE OF disciplina.codigo%TYPE INDEX BY BINARY_INTEGER;
 
-    -- declarações de procedimentos/funções
-    -- a. funcoes: calculos reutilizaveis
-    FUNCTION f_media_aluno (p_cpf IN aluno.cpf_pessoa%TYPE, p_cod_turma IN turma.cod_turma%TYPE) RETURN NUMBER; -- media ponderada pelos pesos das avaliações ja lancadas (null se não há notas)
-    FUNCTION f_media_turma (p_cod_turma IN turma.cod_turma%TYPE) RETURN NUMBER; -- media das medias dos alunos
-    FUNCTION f_classifica_media (p_media IN NUMBER) return varchar2;
-    FUNCTION f_taxa_ocupacao (p_cod_turma IN turma.cod_turma%TYPE) RETURN NUMBER; -- percentual de vagas ocupadas (matriculas não trancadas/vagas)
-    FUNCTION f_cr_calculado (p_cpf IN aluno.cpf_pessoa%TYPE) RETURN NUMBER; --media das disciplinas encerradas pesada pelos creditos
-    
-    -- b. procedimentos: 
-    -- pra preencher coleções (dados)
-    PROCEDURE p_carregar_alunos_turma (p_cod_turma IN  turma.cod_turma%TYPE, p_lista OUT t_lista_alunos);
-    PROCEDURE p_gerar_boletim (p_cpf IN aluno.cpf_pessoa%TYPE, p_apenas_encerradas IN BOOLEAN, p_boletim OUT t_boletim);
-    PROCEDURE p_resumo_periodo (p_periodo IN turma.periodo%TYPE, p_resumo OUT t_resumo_turmas);
-    PROCEDURE p_alunos_em_risco (p_periodo IN turma.periodo%TYPE, p_limite_freq  IN  NUMBER, p_lista OUT t_lista_alunos);
-    PROCEDURE p_disciplinas_pendentes (p_cpf IN aluno.cpf_pessoa%TYPE, p_pendentes OUT t_codigos);
-    -- pra gerar relatório 
-    PROCEDURE p_rel_lista_alunos_turma (p_cod_turma IN turma.cod_turma%TYPE);
-    PROCEDURE p_rel_avaliacoes_aluno (p_cpf IN aluno.cpf_pessoa%TYPE, p_cod_turma IN turma.cod_turma%TYPE);
+    -- [CHECKLIST PL: 17. CREATE OR REPLACE PACKAGE]
+    -- funções públicas
+    FUNCTION f_media_aluno_turma (p_cpf IN aluno.cpf_pessoa%TYPE, p_cod_turma IN turma.cod_turma%TYPE) RETURN NUMBER;
+    FUNCTION f_cr_calculado (p_cpf IN aluno.cpf_pessoa%TYPE) RETURN NUMBER;
+
+    -- procedimentos de negócio e relatórios
+    PROCEDURE p_carregar_alunos_turma (p_cod_turma IN turma.cod_turma%TYPE, p_lista OUT t_lista_alunos);
     PROCEDURE p_rel_historico_escolar (p_cpf IN aluno.cpf_pessoa%TYPE);
-    PROCEDURE p_rel_atestado_matricula (p_cpf IN aluno.cpf_pessoa%TYPE, p_periodo IN turma.periodo%TYPE);
     PROCEDURE p_rel_pendencias_grade (p_cpf IN aluno.cpf_pessoa%TYPE);
-    PROCEDURE p_rel_gestao_periodo (p_periodo IN turma.periodo%TYPE);
-    
+
 END pkg_gestao;
 /
 
+-- [CHECKLIST PL: 18. CREATE OR REPLACE PACKAGE BODY]
 CREATE OR REPLACE PACKAGE BODY pkg_gestao AS
-    -- Implementação do pacote
+
+    -- função: calcula media ponderada das avaliações do aluno em uma turma
+    FUNCTION f_media_aluno_turma (p_cpf IN aluno.cpf_pessoa%TYPE, p_cod_turma IN turma.cod_turma%TYPE) RETURN NUMBER IS 
+        v_media NUMBER(4, 2);
+    BEGIN
+        SELECT ROUND(SUM(d.nota * a.peso) / SUM(a.peso), 2) INTO v_media -- calcula media ponderada e armazena em v_media
+        FROM desempenho_em d JOIN avaliacao a -- cruza tabelas (notas do aluno + pesos das provas)
+        ON a.cod_turma = d.cod_turma AND a.num_avaliacao = d.num_avaliacao -- garante que uma nota especifica se junte com o peso exato dessa mesma prova e turma
+        WHERE d.cpf_aluno = p_cpf AND d.cod_turma = p_cod_turma; -- filtro p calcular apenas a nota do aluno especifico recebido no parametro dentro da turma desejada
+
+        RETURN v_media;
+    EXCEPTION
+        WHEN OTHERS THEN -- pega qualquer caso que não esteja englobado no codigo 
+            RETURN NULL;
+    END f_media_aluno_turma;
+
+    -- função: calcula o CR ponderado pelos crdditos das disciplinas concluidas
+    FUNCTION f_cr_calculado (p_cpf IN aluno.cpf_pessoa%TYPE) RETURN NUMBER IS
+        v_soma  NUMBER := 0;
+        v_cred  NUMBER := 0;
+        v_media NUMBER;
+    BEGIN
+        FOR r IN ( -- cria um registro r que contem o cod_turma e o num_creditos 
+            SELECT m.cod_turma, d.num_creditos 
+            FROM matricula m
+            JOIN turma t ON t.cod_turma = m.cod_turma -- cruza todas as turmas com as turmas em que o aluno fez matricula
+            JOIN disciplina d ON d.codigo = t.codigo_disciplina -- cruza todas as disciplinas que o aluno ja pagou (se matriculou em uma turma da disciplina)
+            WHERE m.cpf_aluno = p_cpf AND m.situacao IN ('Aprovado', 'Aprovado por nota', 'Reprovado') -- faz isso em todas as turmas que o aluno já esteve matriculado e concluiu
+        ) LOOP -- abaixo ele faz o calculo do cr iterativamente, passando por cada registro r encontrado
+            v_media := f_media_aluno_turma(p_cpf, r.cod_turma);
+            IF v_media IS NOT NULL THEN
+                v_soma := v_soma + (v_media * r.num_creditos);
+                v_cred := v_cred + r.num_creditos;
+            END IF;
+        END LOOP;
+
+        IF v_cred = 0 THEN -- trava de segurança quando o aluno ainda nao concluiu nenhuma dsciplina, evita divisao por 0
+            RETURN NULL;
+        END IF;
+
+        RETURN ROUND(v_soma / v_cred, 2);
+    END f_cr_calculado;
+
+    -- procedimento: popula a coleção TABLE usando BULK COLLECT
+    PROCEDURE p_carregar_alunos_turma (
+        p_cod_turma IN turma.cod_turma%TYPE, --parametro de entrada
+        p_lista OUT t_lista_alunos --parametro de saida (table preenchida com a lista dos alunos encontrados)
+    ) IS
+    BEGIN
+        SELECT a.cpf_pessoa, p.nome_completo, a.num_matricula, m.situacao
+        BULK COLLECT INTO p_lista -- carrega todos os registros resultantes da consulta na coleção p_lista de uma vez ao inves de fazer iterativamente com um loop; mais eficiente
+        FROM matricula m
+        JOIN aluno a ON a.cpf_pessoa = m.cpf_aluno -- essas 3 linhas conectam as tabelas matricula, aluno e pessoa pra pegar nome completo e matricula com base no cpf
+        JOIN pessoa p ON p.cpf = a.cpf_pessoa
+        WHERE m.cod_turma = p_cod_turma -- filtra apenas os alunos matriculados
+        ORDER BY p.nome_completo; --ordena em ordem alfabetica
+    END p_carregar_alunos_turma;
+
+    -- relatório: histórico escolar completo do aluno
+    PROCEDURE p_rel_historico_escolar (
+        p_cpf IN aluno.cpf_pessoa%TYPE
+    ) IS
+        v_hist t_historico;
+        v_nome pessoa.nome_completo%TYPE;
+        v_mat aluno.num_matricula%TYPE;
+        v_idx NUMBER := 1;
+        v_cr NUMBER;
+    BEGIN
+        SELECT p.nome_completo, a.num_matricula INTO v_nome, v_mat -- busca nome e matricula usando cpf como parametro
+        FROM aluno a 
+        JOIN pessoa p ON p.cpf = a.cpf_pessoa
+        WHERE a.cpf_pessoa = p_cpf; 
+
+        -- aloca os dados na TABLE de RECORDs
+        FOR r IN ( -- busca todas as matriculas do aluno 
+            SELECT t.cod_turma, d.nome AS disciplina, t.periodo, d.num_creditos, m.frequencia, m.situacao
+            FROM matricula m
+            JOIN turma t ON t.cod_turma = m.cod_turma
+            JOIN disciplina d ON d.codigo = t.codigo_disciplina
+            WHERE m.cpf_aluno = p_cpf
+            ORDER BY t.periodo, d.nome 
+        ) LOOP -- guarda todos os campos selecionados na linha v_idx da table v_hist
+            v_hist(v_idx).cod_turma := r.cod_turma;
+            v_hist(v_idx).disciplina := r.disciplina;
+            v_hist(v_idx).periodo := r.periodo;
+            v_hist(v_idx).creditos := r.num_creditos;
+            v_hist(v_idx).media := f_media_aluno_turma(p_cpf, r.cod_turma);
+            v_hist(v_idx).frequencia := r.frequencia;
+            v_hist(v_idx).situacao := r.situacao;
+            v_idx := v_idx + 1;
+        END LOOP;
+
+        -- impressão no console
+        DBMS_OUTPUT.PUT_LINE('HISTÓRICO: ' || v_nome || ' (Matrícula: ' || v_mat || ')');
+
+        IF v_hist.COUNT = 0 THEN --historico vazio
+            DBMS_OUTPUT.PUT_LINE('Nenhuma matrícula encontrada.');
+        ELSE
+            FOR i IN 1 .. v_hist.COUNT LOOP -- loop que imprime desempenho disciplina por disciplina
+                DBMS_OUTPUT.PUT_LINE(
+                    v_hist(i).periodo || ' | ' ||
+                    RPAD(v_hist(i).disciplina, 25) || ' | Média: ' ||
+                    NVL(TO_CHAR(v_hist(i).media, 'FM90.00'), 'N/A') || ' | ' || -- se a a media for nula imprime N/A
+                    v_hist(i).situacao
+                );
+            END LOOP;
+        END IF;
+
+        v_cr := f_cr_calculado(p_cpf);
+        DBMS_OUTPUT.PUT_LINE('CR CALCULADO: ' || NVL(TO_CHAR(v_cr, 'FM90.00'), 'N/A')); -- encerra mostrando o cr 
+    END p_rel_historico_escolar;
+
+    -- relatório: disciplinas obrigatórias pendentes para integralização
+    PROCEDURE p_rel_pendencias_grade (
+        p_cpf IN aluno.cpf_pessoa%TYPE
+    ) IS
+        v_pendentes t_codigos;
+        v_nome_disc disciplina.nome%TYPE;
+    BEGIN
+        -- consulta com BULK COLLECT para preencher a coleção de códigos
+        SELECT g.codigo_disciplina
+        BULK COLLECT INTO v_pendentes -- guarda todos os codigos de disciplinas encontradas de uma só vez na memoria
+        FROM vincula_se_a v
+        JOIN compoe_a_grade_curricular_de g ON g.codigo_id = v.codigo_curso
+        WHERE v.cpf_aluno = p_cpf AND v.data_saida IS NULL AND g.tipo = 'Obrigatória' -- pega as disciplinas de vinculo ativo (v.data_saida is null) e que sejma obrigatórias 
+        AND NOT EXISTS ( -- garante que a disciplina só entra se o aluno não tiver matrícula nela com situação de aprovação
+              SELECT 1 
+              FROM matricula m
+              JOIN turma t ON t.cod_turma = m.cod_turma
+              WHERE m.cpf_aluno = p_cpf
+                AND t.codigo_disciplina = g.codigo_disciplina
+                AND m.situacao IN ('Aprovado', 'Aprovado por nota')
+          );
+
+        DBMS_OUTPUT.PUT_LINE('--- DISCIPLINAS PENDENTES DA GRADE ---'); --exibição dos resultados
+        IF v_pendentes.COUNT = 0 THEN --aluno não tem mais nenhuma disciplina obrigatoria 
+            DBMS_OUTPUT.PUT_LINE('Nenhuma pendência encontrada.');
+        ELSE
+            FOR i IN 1 .. v_pendentes.COUNT LOOP -- loop que passa por todos os codigos de disciplina pendente encontrados; usa o indice i
+                SELECT nome INTO v_nome_disc FROM disciplina WHERE codigo = v_pendentes(i); --pega o nome legivel da disciplina pra cada codigo pendente encontrado
+
+                DBMS_OUTPUT.PUT_LINE(i || '. [' || v_pendentes(i) || '] ' || v_nome_disc);
+            END LOOP;
+        END IF;
+    END p_rel_pendencias_grade;
+
 END pkg_gestao;
 /
 

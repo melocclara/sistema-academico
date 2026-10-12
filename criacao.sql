@@ -174,7 +174,7 @@ CREATE TABLE matricula
     CONSTRAINT matricula_aluno_fk FOREIGN KEY (cpf_aluno) REFERENCES aluno(cpf_pessoa),
     CONSTRAINT matricula_turma_fk FOREIGN KEY (cod_turma) REFERENCES turma(cod_turma),
     CONSTRAINT matricula_frequencia_ck CHECK (frequencia BETWEEN 0 AND 100),
-    CONSTRAINT matricula_situacao_ck CHECK (situacao IN ('Aprovado por nota', 'Aprovado', 'Reprovado', 'Reprovado por falta', 'Trancado', 'Matriculado', 'Cancelado'))
+    CONSTRAINT matricula_situacao_ck CHECK (situacao IN ('Aprovado', 'Aprovado por nota', 'Reprovado', 'Reprovado por falta', 'Reprovado por média e falta', 'Reprovado por nota', 'Reprovado por nota e falta', 'Trancado', 'Matriculado', 'Cancelado'))
 );
 
 CREATE TABLE monitora

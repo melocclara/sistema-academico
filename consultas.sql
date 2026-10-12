@@ -283,13 +283,13 @@ FROM matricula
 GROUP BY cod_turma;
 
 -- filtra as turmas com média acima de 7 (agrupando pelo código da turma)
-SELECT cod_turma,
+SELECT d.cod_turma,
        ROUND(SUM(d.nota * a.peso) / SUM(a.peso), 2) AS media_turma
 FROM desempenho_em d
 JOIN avaliacao a
     ON a.num_avaliacao = d.num_avaliacao
     AND a.cod_turma = d.cod_turma
-GROUP BY cod_turma
+GROUP BY d.cod_turma
 HAVING SUM(d.nota * a.peso) / SUM(a.peso) > 7;
 
 -- [CHECKLIST PL: 4. CREATE PROCEDURE, 8. IF ELSIF, 9. CASE WHEN, 16. USO DE PARÂMETROS]
@@ -315,8 +315,8 @@ BEGIN
     JOIN avaliacao a
         ON a.num_avaliacao = d.num_avaliacao
         AND a.cod_turma = d.cod_turma
-    WHERE cpf_aluno = p_cpf_aluno
-        AND cod_turma = p_cod_turma;
+    WHERE d.cpf_aluno = p_cpf_aluno
+        AND d.cod_turma = p_cod_turma;
 
     -- define a situação com base na frequência e na média
     IF p_frequencia < 75 AND p_media < 3 THEN
@@ -448,7 +448,7 @@ WHERE v.data_saida IS NULL
 -- [CHECKLIST SQL: 24. UNION/INTERSECT/MINUS, 25. CREATE VIEW]
 -- Operadores de conjunto e criação da View
 
--- 24 MINUS [] : cadeiras obrigatorias q faltam pra cada aluno
+-- 24 MINUS [x] : cadeiras obrigatorias q faltam pra cada aluno
 
 with faltantes AS (
     -- obrigatoras da grade

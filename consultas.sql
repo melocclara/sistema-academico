@@ -388,7 +388,20 @@ AND d.codigo NOT IN (
         AND m.situacao IN ('Aprovado', 'Aprovado por nota')
 );
 
--- 19 to-do
+-- 19: [x] turmas que não cabem em pelo menos uma sala cadastrada
+
+SELECT
+    t.cod_turma,
+    d.nome AS disciplina,
+    t.num_vagas
+FROM turma t
+JOIN disciplina d
+    ON d.codigo = t.codigo_disciplina
+WHERE t.num_vagas > ANY (
+    SELECT s.capacidade
+    FROM sala s
+)
+ORDER BY t.num_vagas DESC;
 
 -- 20: [x] alunos com maior cr em cada curso (com empates)
 

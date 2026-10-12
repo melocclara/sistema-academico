@@ -134,14 +134,14 @@ ORDER BY data_admissao DESC;
 
 -- SQL 11. INNER JOIN
 
--- Consulta monitores da disciplina Estruturas de Dados e ordena-os por nome completo e pelo código da turma
+-- Consulta monitores da disciplina Engenharia de Software e ordena-os por nome completo e pelo código da turma
 SELECT p.nome_completo, p.cpf, d.codigo AS cod_disciplina, d.nome AS nome_disciplina, t.cod_turma, t.periodo
 FROM pessoa p
 INNER JOIN aluno a ON p.cpf = a.cpf_pessoa
 INNER JOIN monitora m ON m.cpf_aluno = a.cpf_pessoa
 INNER JOIN turma t ON t.cod_turma = m.cod_turma
 INNER JOIN disciplina d ON d.codigo = t.codigo_disciplina
-WHERE d.nome = 'Estruturas de Dados'
+WHERE d.nome = 'Engenharia de Software'
 ORDER BY p.nome_completo, t.cod_turma;
 
 -- SQL 12. MAX

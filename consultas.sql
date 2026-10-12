@@ -284,10 +284,13 @@ GROUP BY cod_turma;
 
 -- filtra as turmas com média acima de 7 (agrupando pelo código da turma)
 SELECT cod_turma,
-       AVG(nota) AS media_turma
-FROM desempenho_em
+       ROUND(SUM(d.nota * a.peso) / SUM(a.peso), 2) AS media_turma
+FROM desempenho_em d
+JOIN avaliacao a
+    ON a.num_avaliacao = d.num_avaliacao
+    AND a.cod_turma = d.cod_turma
 GROUP BY cod_turma
-HAVING AVG(nota) > 7;
+HAVING SUM(d.nota * a.peso) / SUM(a.peso) > 7;
 
 -- [CHECKLIST PL: 4. CREATE PROCEDURE, 8. IF ELSIF, 9. CASE WHEN, 16. USO DE PARÂMETROS]
 -- relatório de desempenho do aluno numa turma (média, situação, frequência e nível de frequência)
@@ -307,8 +310,11 @@ BEGIN
         AND cod_turma = p_cod_turma;
 
     -- calcula a média das notas do aluno na turma (formato: 0,0)
-    SELECT ROUND(AVG(nota), 1) INTO p_media
-    FROM desempenho_em
+    SELECT ROUND(SUM(d.nota * a.peso) / SUM(a.peso), 2) INTO p_media
+    FROM desempenho_em d
+    JOIN avaliacao a
+        ON a.num_avaliacao = d.num_avaliacao
+        AND a.cod_turma = d.cod_turma
     WHERE cpf_aluno = p_cpf_aluno
         AND cod_turma = p_cod_turma;
 
@@ -348,17 +354,23 @@ END;
 
 SELECT d.codigo, 
        d.nome, 
-       ROUND(AVG(de.nota), 2) AS media_disciplina
+       ROUND(SUM(de.nota * a.peso) / SUM(a.peso), 2) AS media_disciplina
 FROM disciplina d
 JOIN turma t
     ON t.codigo_disciplina = d.codigo
 JOIN desempenho_em de
     ON de.cod_turma = t.cod_turma
-GROUP BY d.codigo, d.nome
-HAVING AVG(de.nota) > (
-    SELECT AVG(nota)
-    FROM desempenho_em
-    WHERE nota IS NOT NULL
+JOIN avaliacao a
+    ON a.num_avaliacao = de.num_avaliacao
+    AND a.cod_turma = de.cod_turma
+GROUP BY d.codigo,
+         d.nome
+HAVING SUM(de.nota * a.peso) / SUM(a.peso) > (
+    SELECT SUM(de2.nota * a2.peso) / SUM(a2.peso)
+    FROM desempenho_em de2
+    JOIN avaliacao a2
+        ON a2.num_avaliacao = de2.num_avaliacao
+        AND a2.cod_turma = de2.cod_turma
 );
 
 -- 18: [x] disciplinas que o aluno ainda não foi aprovado
@@ -581,7 +593,7 @@ BEGIN
             p.nome_completo,
             d.nome,
             m.frequencia,
-            ROUND(AVG(de.nota), 2) AS media
+            ROUND(SUM(de.nota * a.peso) / SUM(a.peso), 2) AS media
         FROM matricula m
         JOIN pessoa p
             ON p.cpf = m.cpf_aluno
@@ -592,6 +604,9 @@ BEGIN
         LEFT JOIN desempenho_em de
             ON de.cpf_aluno = m.cpf_aluno
             AND de.cod_turma = m.cod_turma
+        LEFT JOIN avaliacao a
+            ON a.num_avaliacao = de.num_avaliacao
+            AND a.cod_turma = de.cod_turma
         WHERE m.situacao NOT IN (
             'Aprovado',
             'Aprovado por nota',
@@ -602,7 +617,7 @@ BEGIN
             d.nome,
             m.frequencia
         HAVING m.frequencia < 75
-            OR AVG(de.nota) < 7
+            OR SUM(de.nota * a.peso) / SUM(a.peso) < 7
     )
     LOOP
         -- printa o alerta academico no console

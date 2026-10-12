@@ -169,7 +169,7 @@ CREATE TABLE matricula
     cpf_aluno char(11),
     cod_turma varchar2(10),
     frequencia number(3) NOT NULL,
-    situacao varchar2(20) NOT NULL,
+    situacao varchar2(30) NOT NULL,
     CONSTRAINT matricula_pk PRIMARY KEY (cpf_aluno, cod_turma),
     CONSTRAINT matricula_aluno_fk FOREIGN KEY (cpf_aluno) REFERENCES aluno(cpf_pessoa),
     CONSTRAINT matricula_turma_fk FOREIGN KEY (cod_turma) REFERENCES turma(cod_turma),

@@ -7,11 +7,11 @@ SET SERVEROUTPUT ON;
 -- [CHECKLIST SQL: 1. ALTER TABLE, 2. CREATE INDEX, 26. GRANT/REVOKE]
 -- Coloque aqui os comandos de alteração de tabela e permissões
 ALTER table sala
-ADD (recursos_disponiveis varchar2(200))
+ADD (recursos_disponiveis varchar2(200));
 --breve descrição dos materias disponiveis na sala, como computador, projetor etc...
 
 CREATE index conferir_vagas
-ON turma(num_vagas)
+ON turma(num_vagas);
 --index feito para acessar o numero de vagas da turma de maneira mais facil
 
 -- GRANT: concede permissões a um usuário.
@@ -24,7 +24,7 @@ ON turma(num_vagas)
 
 -- [CHECKLIST SQL: 3. INSERT INTO, 4. UPDATE, 5. DELETE]
 INSERT INTO sala
-(cod_sala, capacidade, predio, bloco, andar, recursos)
+(cod_sala, capacidade, predio, bloco, andar, recursos_disponiveis)
 VALUES ('LAB05', 50, 'Centro de Informática', 'B', 0, 'Projetores, Ar-condicionado e Computadores');
 --uma nova sala foi inserida, junto com as informaçoes de recursos que foi criada anteriormente)
 

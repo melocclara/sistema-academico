@@ -648,14 +648,14 @@ CREATE OR REPLACE PACKAGE pkg_gestao AS
     TYPE r_aluno IS RECORD (
         cpf aluno.cpf_pessoa%TYPE,
         nome pessoa.nome_completo%TYPE,
-        matricula aluno.num_matricula%TYPE,
+        num_matricula aluno.num_matricula%TYPE,
         situacao matricula.situacao%TYPE
     );
     
     -- registro para linha de histórico/boletim
     TYPE r_linha_historico IS RECORD (
         cod_turma turma.cod_turma%TYPE,
-        disciplina disciplina.nome%TYPE,
+        nome_disciplina disciplina.nome%TYPE,
         periodo turma.periodo%TYPE,
         creditos disciplina.num_creditos%TYPE,
         media NUMBER(4, 2),
@@ -766,7 +766,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_gestao AS
             ORDER BY t.periodo, d.nome 
         ) LOOP -- guarda todos os campos selecionados na linha v_idx da table v_hist
             v_hist(v_idx).cod_turma := r.cod_turma;
-            v_hist(v_idx).disciplina := r.disciplina;
+            v_hist(v_idx).nome_disciplina := r.disciplina;
             v_hist(v_idx).periodo := r.periodo;
             v_hist(v_idx).creditos := r.num_creditos;
             v_hist(v_idx).media := f_media_aluno_turma(p_cpf, r.cod_turma);
@@ -784,7 +784,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_gestao AS
             FOR i IN 1 .. v_hist.COUNT LOOP -- loop que imprime desempenho disciplina por disciplina
                 DBMS_OUTPUT.PUT_LINE(
                     v_hist(i).periodo || ' | ' ||
-                    RPAD(v_hist(i).disciplina, 25) || ' | Média: ' ||
+                    RPAD(v_hist(i).nome_disciplina, 25) || ' | Média: ' ||
                     NVL(TO_CHAR(v_hist(i).media, 'FM90.00'), 'N/A') || ' | ' || -- se a a media for nula imprime N/A
                     v_hist(i).situacao
                 );

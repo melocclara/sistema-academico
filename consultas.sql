@@ -846,18 +846,6 @@ END;
 /
 
 -- [CHECKLIST PL: 20. TRIGGER DE LINHA]
-CREATE TABLE auditoria_notas (
-    id_historico NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    cpf_aluno CHAR(11),
-    cod_turma VARCHAR2(10),
-    num_avaliacao INTEGER,
-    nota_anterior NUMBER(3,1),
-    nota_nova NUMBER(3,1),
-    operacao VARCHAR2(10),
-    data_operacao TIMESTAMP,
-    usuario VARCHAR2(128)
-);
-
 CREATE OR REPLACE TRIGGER trg_auditoria_notas
 AFTER INSERT OR UPDATE OF nota ON desempenho_em
 FOR EACH ROW
